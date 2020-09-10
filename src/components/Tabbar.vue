@@ -2,7 +2,7 @@
   <div class="hello">
     <van-tabbar v-model="active">
       <van-tabbar-item icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item icon="search" dot>订单</van-tabbar-item>
+      <van-tabbar-item icon="label-o" dot>订单</van-tabbar-item>
       <van-tabbar-item icon="friends-o" badge="5">我的</van-tabbar-item>
     </van-tabbar>
   </div>
