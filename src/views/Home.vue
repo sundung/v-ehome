@@ -1,11 +1,18 @@
 <template>
   <div>
-    <van-button type="primary">主要按钮</van-button>
+    <Tabbar></Tabbar>
   </div>
 </template>
 
 <script>
-export default {}
+// 导入 Tabbar 组件
+import Tabbar from '@/components/Tabbar'
+export default {
+  // 注册组件
+  components: {
+    Tabbar
+  }
+}
 </script>
 
 <style></style>
