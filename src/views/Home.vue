@@ -3,18 +3,27 @@
     <!-- 轮播图 -->
     <Swipers></Swipers>
     <!-- grid宫格区域 -->
-    <van-grid :column-num="3" :gutter="10" :border="false">
-      <van-grid-item v-for="item in iconGrid" :key="item.text">
-        <img :src="item.iconUrl" alt="" />
+    <van-grid :column-num="3"
+              :gutter="10"
+              :border="false">
+      <van-grid-item v-for="item in iconGrid"
+                     :key="item.text">
+        <img :src="item.iconUrl"
+             alt="" />
         <span>{{ item.text }}</span>
       </van-grid-item>
     </van-grid>
     <!-- 家电维修模块 -->
-    <div class="jiadianweixiu" v-for="item in jiadian" :key="item.title">
+    <div class="jiadianweixiu"
+         v-for="item in jiadian"
+         :key="item.title">
       <div class="text">{{ item.title }}</div>
-      <van-grid :column-num="3" :border="false">
-        <van-grid-item v-for="(n, inx) in jiadian" :key="inx">
-          <img :src="n.imgUrl" alt="" />
+      <van-grid :column-num="3"
+                :border="false">
+        <van-grid-item v-for="(n, inx) in jiadian"
+                       :key="inx">
+          <img :src="n.imgUrl"
+               alt="" />
           <span>{{ n.span }}</span>
         </van-grid-item>
       </van-grid>
@@ -98,31 +107,31 @@ export default {
   width: 100%;
   height: 100%;
   .van-grid {
-    margin-bottom: 0.25rem;
+    margin-bottom: 20px;
     background-color: #fff;
     img {
-      height: 1rem;
-      width: 1rem;
+      height: 80px;
+      width: 80px;
     }
     span {
-      font-size: 0.3rem;
+      font-size: 24px;
     }
   }
   // 家电维修模块
   .jiadianweixiu {
-    height: 4.9125rem;
+    height: 393px;
     background-color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
     .text {
-      font-size: 0.45rem;
-      padding: 0.375rem;
+      font-size: 24px;
+      padding: 30px;
     }
     img {
-      height: 2.625rem;
-      width: 2.625rem;
+      height: 210px;
+      width: 210px;
     }
     span {
-      margin-top: 0.25rem;
+      margin-top: 36px;
     }
   }
 }

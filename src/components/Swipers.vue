@@ -1,7 +1,10 @@
 <template>
-  <van-swipe class="goods-swipe" :autoplay="2500">
-    <van-swipe-item v-for="item in goods.thumbs" :key="item">
-      <img :src="item" alt="apple" />
+  <van-swipe class="goods-swipe"
+             :autoplay="2500">
+    <van-swipe-item v-for="item in goods.thumbs"
+                    :key="item">
+      <img :src="item"
+           alt="网络出问题了" />
     </van-swipe-item>
   </van-swipe>
 </template>
@@ -27,7 +30,7 @@ export default {
 .van-swipe {
   .van-swipe-item {
     img {
-      height: 3.425rem;
+      height: 274px;
       width: 100%;
     }
   }
