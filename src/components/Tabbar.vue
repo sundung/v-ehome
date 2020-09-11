@@ -22,6 +22,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 .van-tabbar {
-  height: 98px;
+  height: 1.225rem;
 }
 </style>
