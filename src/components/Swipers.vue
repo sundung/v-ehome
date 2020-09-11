@@ -27,7 +27,7 @@ export default {
 .van-swipe {
   .van-swipe-item {
     img {
-      height: 150px;
+      height: 274px;
       width: 100%;
     }
   }

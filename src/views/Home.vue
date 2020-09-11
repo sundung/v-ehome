@@ -1,8 +1,17 @@
 <template>
   <div class="container">
     <!-- 轮播图 -->
-
     <Swipers></Swipers>
+    <!-- grid宫格区域 -->
+    <van-grid :column-num="3" :gutter="10">
+      <van-grid-item
+        v-for="value in 6"
+        :key="value"
+        icon="photo-o"
+        text="文字"
+      />
+    </van-grid>
+    <!-- Tabbar组件 -->
     <Tabbar></Tabbar>
   </div>
 </template>
@@ -20,8 +29,20 @@ export default {
   },
   data() {
     return {}
+  },
+  beforeCreate() {
+    document.querySelector('body').setAttribute('style', 'background:#ccc')
+  },
+  beforeDestroy() {
+    document.querySelector('body').setAttribute('style', '')
   }
 }
 </script>
 
-<style></style>
+<style lang="less">
+// .container {
+//   width: 100%;
+//   height: 100%;
+//   background-color: red;
+// }
+</style>

@@ -5,7 +5,15 @@ import store from './store'
 
 // 适配
 import 'amfe-flexible/index.js'
-import { Button, Tabbar, TabbarItem, Swipe, SwipeItem } from 'vant'
+import {
+  Button,
+  Tabbar,
+  TabbarItem,
+  Swipe,
+  SwipeItem,
+  Grid,
+  GridItem
+} from 'vant'
 
 Vue.config.productionTip = false
 
@@ -14,6 +22,8 @@ Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Swipe)
 Vue.use(SwipeItem)
+Vue.use(Grid)
+Vue.use(GridItem)
 new Vue({
   router,
   store,
