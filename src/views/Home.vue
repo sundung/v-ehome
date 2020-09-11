@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <!-- 轮播图 -->
+
     <Swipers></Swipers>
     <Tabbar></Tabbar>
   </div>
@@ -16,6 +17,9 @@ export default {
   components: {
     Tabbar,
     Swipers
+  },
+  data() {
+    return {}
   }
 }
 </script>
