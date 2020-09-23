@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 import Home from '@/views/Home'
 
+import JiaDianWeiXiu from '@/views/JiaDianWeiXiu'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,6 +12,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/jiadianweixiu',
+    name: 'JiaDianWeiXiu',
+    component: JiaDianWeiXiu
   }
 ]
 

@@ -7,7 +7,8 @@
               :gutter="10"
               :border="false">
       <van-grid-item v-for="item in iconGrid"
-                     :key="item.text">
+                     :key="item.text"
+                     to="/jiadianweixiu">
         <img :src="item.iconUrl"
              alt="" />
         <span>{{ item.text }}</span>

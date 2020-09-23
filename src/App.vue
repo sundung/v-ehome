@@ -5,4 +5,8 @@
   </div>
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+body {
+  background-color: #f8f8f8;
+}
+</style>
