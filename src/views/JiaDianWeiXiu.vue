@@ -88,14 +88,20 @@
     </div>
     <!-- 收费说明区域 -->
     <ChargesNotes></ChargesNotes>
+    <!-- 收费标准区域 -->
+    <ChargingStandards></ChargingStandards>
   </div>
 </template>
 
 <script>
+// 引入 收费说明组件
 import ChargesNotes from '../components/ChargesNotes'
+// 引入收费标准
+import ChargingStandards from '../components/ChargingStandards'
 export default {
   components: {
-    ChargesNotes
+    ChargesNotes,
+    ChargingStandards
   }
 }
 </script>
