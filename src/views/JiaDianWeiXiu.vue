@@ -15,60 +15,88 @@
       <div class="area-item">
         <div>
           <span>空调维修</span>
-          <img src="../assets/imgs/kongtiaojiafu-dianji.png"
+          <img src="../assets/imgs/kongtiaoweix-weidianji.png"
                alt="">
         </div>
       </div>
       <div class="area-item">
         <div>
           <span>冰箱维修</span>
-          <img src="../assets/imgs/kongtiaojiafu-dianji.png"
+          <img src="../assets/imgs/bingxiang-weidianji.png"
                alt="">
         </div>
       </div>
       <div class="area-item">
         <div>
           <span>电视维修</span>
-          <img src="../assets/imgs/kongtiaojiafu-dianji.png"
+          <img src="../assets/imgs/dianshi-weixuanzhong.png"
                alt="">
         </div>
       </div>
       <div class="area-item">
         <div>
           <span>洗衣机维修</span>
-          <img src="../assets/imgs/kongtiaojiafu-dianji.png"
+          <img src="../assets/imgs/xiyiji-weixuanzhong.png"
                alt="">
         </div>
       </div>
       <div class="area-item">
         <div>
           <span>燃气灶维修</span>
-          <img src="../assets/imgs/kongtiaojiafu-dianji.png"
+          <img src="../assets/imgs/ranqizao-weixuanzhong.png"
                alt="">
         </div>
       </div>
       <div class="area-item">
         <div>
           <span>燃气热水器维修</span>
-          <img src="../assets/imgs/kongtiaojiafu-dianji.png"
+          <img src="../assets/imgs/ranqireshuiqi-weixuanzhong.png"
                alt="">
         </div>
       </div>
       <div class="area-item">
         <div>
           <span>电热水器维修</span>
-          <img src="../assets/imgs/kongtiaojiafu-dianji.png"
+          <img src="../assets/imgs/dianreshuiqi-weixuanzhong.png"
                alt="">
         </div>
       </div>
 
     </div>
+    <!-- 空白区域 -->
+    <div class="blank-area"></div>
+    <!-- 服务保障区域 -->
+    <div class="service-assurance">
+      <div class="title">服务保障</div>
+      <div class="content">
+        <div class="item">
+          <img src="../assets/imgs/feiyong.png"
+               alt="">
+          <span>无前期费用</span>
+        </div>
+        <div class="item">
+          <img src="../assets/imgs/pinzhibaozhang.png"
+               alt="">
+          <span>品质有保障</span>
+        </div>
+        <div class="item">
+          <img src="../assets/imgs/shouhou.png"
+               alt="">
+          <span>超长售后</span>
+        </div>
+      </div>
+    </div>
+    <!-- 收费说明区域 -->
+    <ChargesNotes></ChargesNotes>
   </div>
 </template>
 
 <script>
+import ChargesNotes from '../components/ChargesNotes'
 export default {
-
+  components: {
+    ChargesNotes
+  }
 }
 </script>
 
@@ -119,6 +147,37 @@ export default {
     }
     & div:nth-last-child(1) {
       margin-right: 0;
+    }
+  }
+  // 空白区域
+  .blank-area {
+    height: 211px;
+    width: 100%;
+    background-color: #fff;
+    margin-top: -188px;
+  }
+  // 服务保障区域
+  .service-assurance {
+    height: 131px;
+    background-color: #fff;
+    padding: 0 30px;
+    font-size: 24px;
+    .title {
+      font-size: 28px;
+    }
+    .content {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      .item {
+        img {
+          width: 24px;
+          height: 24px;
+        }
+        span {
+          margin-left: 12px;
+        }
+      }
     }
   }
 }
