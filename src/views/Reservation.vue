@@ -1,0 +1,321 @@
+<template>
+  <div>
+    <div class="repairs">
+      <div class="repairs-item">
+        <text class='start'>*</text>
+        <text>报修项目</text>
+      </div>
+      <div class="repairs-item">{{msg}}</div>
+      <div class="repairs-item changButton"
+           bindtap="alertChange">更换 > </div>
+    </div>
+    <!-- 横线 -->
+    <div class="line"></div>
+    <!-- 报修项目的icon区域 ----------------------------------------------------->
+    <div class="icon-group">
+      <div class="icon-group-item">
+        <img src="../assets/imgs/lijiyuyueIcon/shangmenfuwu.png" />
+        免费上门
+      </div>
+      <div class="icon-group-item">
+        <img src="../assets/imgs/lijiyuyueIcon/mianfeijiance-jinhuang.png" />
+        免费检测
+      </div>
+      <div class="icon-group-item">
+        <img src="../assets/imgs/lijiyuyueIcon/shoufeitouming.png" />
+        收费透明
+      </div>
+    </div>
+
+    <!-- 空调机型选择区域----------------------------------------------------------->
+    <div class="air-conditioner">
+      <div class="air-conditioner-item">
+        <div>空调机型</div>
+        <div>{{AirModalDlgValue}}</div>
+        <div bindtap="airModalDlg">请选择 > </div>
+      </div>
+      <!-- 线段 -->
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="air-conditioner-item">
+        <div>空调功率</div>
+        <div>{{AirPowerModalDlgValue}}</div>
+        <div bindtap="airPowerModalDlg">请选择 > </div>
+      </div>
+      <!-- 线段 -->
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="air-conditioner-item">
+        <div>报修数量</div>
+        <div class="input">
+          <!-- <div class="subtract public"
+               bindtap="bindMinus">-</div>
+          <input bindinput='bindManual'
+                 value='{{num}}' />
+          <div class="add public"
+               bindtap="bindPlus">+</div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 服务地址模块开始------------------------------------------------------- -->
+
+    <div class="address">
+      <div class="address-item">
+        <div>
+          <text class='start'>*</text>
+          <text>服务地址</text>
+        </div>
+        <navigator url="/pages/components/newAddress/index">
+          <div>请选择服务地址 > </div>
+        </navigator>
+      </div>
+      <!-- 线段 -->
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="address-item">
+        <div>
+          <text class='start'>*</text>
+          <text>上门服务时间</text>
+        </div>
+        <!-- 使用时间选择器组件 -->
+        <timePicker></timePicker>
+      </div>
+    </div>
+    <!-- 线段 -->
+    <div class="line"></div>
+    <div class="line"></div>
+    <!-- 补充问题描述区------------------------------------------------------ -->
+    <div class="question">
+      <div class='item'>
+        <text class='start'>*</text>问题描述
+      </div>
+      <div class="content">
+        <textarea placeholder="请描述存在的问题..."></textarea>
+      </div>
+    </div>
+
+    <!-- 立即预约按钮---------------------------------------------------- -->
+    <button style="width:609rpx"
+            class="button"
+            bindtap="alertOrder">
+      立即预约
+    </button>
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang='less' scoped>
+// 控制文字前边的星号(*)
+.start {
+  font-weight: 400;
+  color: #ff3b30;
+  line-height: 33rpx;
+  letter-spacing: 4rpx;
+}
+// 线段样式
+.line {
+  display: block;
+  margin: 0 auto;
+  width: 690rpx;
+  height: 1rpx;
+  background-color: #d7d7d7;
+}
+/* <!-- 报修项目模块开始 --------------------------------------------------------- --> */
+
+.repairs {
+  background-color: #fff;
+  height: 88rpx;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  .repairs-item {
+    margin-top: 28rpx;
+  }
+  // 控制 更换 文字的颜色
+  & view:nth-child(3) {
+    color: #999;
+  }
+}
+
+/* 报修项目的icon区域开始------------------------------------------------------------------- */
+.icon-group {
+  display: flex;
+  justify-content: space-around;
+  height: 88rpx;
+  background-color: #fff;
+  .icon-group-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // icon区域的图片样式
+    image {
+      width: 20rpx;
+      height: 22rpx;
+      // 控制icon图片与文字的距离
+      margin-right: 12rpx;
+    }
+  }
+}
+/* 更换按钮 */
+.repairs .changButton {
+  text-align: center;
+  height: 60rpx;
+  width: 100rpx;
+}
+
+/* <!-- 空调机型选择区域-----------------------------------------------------------> */
+/* 整个外包的大盒子样式 */
+.air-conditioner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  // 控制 维修具体报修内容与 icon 区域的距离
+  margin-top: 20rpx;
+  /* 盒子里边的每个item样式 */
+  .air-conditioner-item {
+    padding: 0 30rpx;
+    height: 88rpx;
+    background-color: #fff;
+    // 控制内容两边对齐,垂直居中
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 报修数量样式开始 */
+    .input {
+      display: flex;
+      /* 控制 input框的数字 与 加减号垂直水平对齐 */
+      justify-content: center;
+      align-items: center;
+      .public {
+        height: 24rpx;
+        width: 24rpx;
+        background-color: #fff;
+        border: 2rpx solid #999;
+        text-align: center;
+        line-height: 24rpx;
+        border-radius: 50%;
+        margin: 0 20rpx;
+      }
+      /* 控制报修数量的input框 */
+      input {
+        width: 33rpx;
+        line-height: 40rpx;
+      }
+    }
+  }
+}
+
+/* 服务地址模块------------------------------------------------------------------------ */
+
+/* 选择服务地址的样式 */
+.address {
+  padding: 0 30rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  .address-item {
+    height: 88rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+/* 补充问题描述区域------------------------------------------------------ */
+.question {
+  padding: 0 30rpx;
+  background-color: #fff;
+  height: 260rpx;
+  // 控制问题描述文字的样式
+  .item {
+    padding: 28rpx 0 20rpx 0;
+  }
+}
+/* 立即预约按钮---------------------------------------------------- */
+.button {
+  height: 98rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-weight: 400;
+  font-size: 32rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #0090ff;
+}
+
+/* 遮罩层 ---------------------------------------------------------*/
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.5;
+}
+
+/* 弹出层 ------------------------------------------------------*/
+.modalDlg {
+  width: 100%;
+  height: 600rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  border-radius: 8rpx 8rpx 0px 0px;
+  /* 弹出层上部  */
+  .modalDlgTop {
+    font-size: 32rpx;
+    display: flex;
+    justify-content: space-between;
+  }
+  /* 弹出层的服务项目 */
+  .serviceProject {
+    margin-top: 80rpx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* 弹出层中的报修项目具体的按钮区域 */
+    .serviceProject-item {
+      width: 210rpx;
+      height: 60rpx;
+      background: #fff;
+      border-radius: 8rpx;
+      border: 1rpx solid #999;
+      /* 控制文字样式 */
+      text-align: center;
+      line-height: 60rpx;
+      color: #999;
+    }
+    /* 控制 中间一行的样式 */
+    & view:nth-child(4) {
+      margin: 30rpx 0;
+    }
+    & view:nth-child(5) {
+      margin: 30rpx 0;
+    }
+    & view:nth-child(6) {
+      margin: 30rpx 0;
+    }
+  }
+}
+
+/* 点击服务项目时高亮-------------------------------------------------------------- */
+.active {
+  color: #0090ff !important;
+  border: 1rpx solid #0090ff !important;
+}
+</style>

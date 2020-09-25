@@ -5,6 +5,7 @@ import Home from '@/views/Home'
 
 import JiaDianWeiXiu from '@/views/JiaDianWeiXiu'
 
+import Reservation from '@/views/Reservation'
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,6 +18,11 @@ const routes = [
     path: '/jiadianweixiu',
     name: 'JiaDianWeiXiu',
     component: JiaDianWeiXiu
+  },
+  {
+    path: '/reservation',
+    name: 'Reservation',
+    component: Reservation
   }
 ]
 

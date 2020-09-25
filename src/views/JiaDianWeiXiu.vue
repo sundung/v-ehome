@@ -117,9 +117,11 @@
         </div>
       </div>
     </div>
+    <div style="height:30px;"></div>
     <!-- 在线预约 -->
     <div class="online">
-      <button class="button">在线预约</button>
+      <button class="button"
+              @click="goToReservation">在线预约</button>
     </div>
 
   </div>
@@ -134,6 +136,16 @@ export default {
   components: {
     ChargesNotes,
     ChargingStandards
+  },
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    goToReservation() {
+      this.$router.push({ path: '/reservation' })
+    }
   }
 }
 </script>
@@ -220,6 +232,7 @@ export default {
   }
   // 服务流程区域
   .service-process {
+    // margin-bottom: 60px;
     height: 271px;
     background-color: #fff;
     padding: 30px;
