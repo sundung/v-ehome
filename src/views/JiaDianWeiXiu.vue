@@ -90,6 +90,38 @@
     <ChargesNotes></ChargesNotes>
     <!-- 收费标准区域 -->
     <ChargingStandards></ChargingStandards>
+    <!-- 服务流程 -->
+    <div class="service-process">
+      <div class="title">服务流程</div>
+      <div class="content">
+        <div class="item">
+          <img src="../assets/imgs/yuyue.png"
+               alt="">
+          <div>在线预约</div>
+          <div>报修问题</div>
+          <div>免费下单</div>
+        </div>
+        <div class="item">
+          <img src="../assets/imgs/weixiu.png"
+               alt="">
+          <div>确认维修</div>
+          <div>确认故障</div>
+          <div>提交维修清单</div>
+        </div>
+        <div class="item">
+          <img src="../assets/imgs/yanshou.png"
+               alt="">
+          <div>验收</div>
+          <div>服务验收</div>
+          <div>售后有保障</div>
+        </div>
+      </div>
+    </div>
+    <!-- 在线预约 -->
+    <div class="online">
+      <button class="button">在线预约</button>
+    </div>
+
   </div>
 </template>
 
@@ -184,6 +216,58 @@ export default {
           margin-left: 12px;
         }
       }
+    }
+  }
+  // 服务流程区域
+  .service-process {
+    height: 271px;
+    background-color: #fff;
+    padding: 30px;
+    box-sizing: border-box;
+    .title {
+      font-size: 28px;
+    }
+    .content {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-around;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 24px;
+        color: #999;
+        img {
+          width: 26px;
+          height: 26px;
+        }
+        & div:nth-child(2) {
+          font-size: 26px;
+          color: #0090ff;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  // 在线预约按钮区域
+  .online {
+    height: 158px;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    .button {
+      width: 690px;
+      height: 98px;
+      background: #0090ff;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 32px;
     }
   }
 }
