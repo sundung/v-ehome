@@ -12,7 +12,8 @@ import {
   Swipe,
   SwipeItem,
   Grid,
-  GridItem
+  GridItem,
+  Popup
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -24,6 +25,7 @@ Vue.use(Swipe)
 Vue.use(SwipeItem)
 Vue.use(Grid)
 Vue.use(GridItem)
+Vue.use(Popup)
 new Vue({
   router,
   store,

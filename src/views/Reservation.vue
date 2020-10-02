@@ -6,7 +6,8 @@
         <span class="start">*</span>
         报修项目</div>
       <div class="repairing-items">空调维修</div>
-      <div class="repairing-items text">更换
+      <div class="repairing-items text"
+           @click="showPopup">更换
         <span> > </span>
       </div>
     </div>
@@ -84,11 +85,44 @@
     <!-- 立即预约按钮 -->
     <van-button type="info"
                 class="button">立即预约</van-button>
+    <!-- 点击报修项目的更换弹出Popup 弹出层 -->
+    <van-popup v-model="show"
+               class="popup-project"
+               round
+               position="bottom"
+               :style="{ height: '300px' }">
+      <div class="top">
+        <div class="item">X</div>
+        <div class="item">选择服务项目</div>
+        <div class="item">✔️</div>
+      </div>
+      <div class="content">
+        <div class="item active">空调加氟</div>
+        <div class="item">空调维修</div>
+        <div class="item">冰箱维修</div>
+        <div class="item">电视维修</div>
+        <div class="item">洗衣机维修</div>
+        <div class="item">燃气灶维修</div>
+        <div class="item">燃气热水器维修</div>
+        <div class="item">电热水器维修</div>
+      </div>
+    </van-popup>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      show: false
+    }
+  },
+
+  methods: {
+    showPopup() {
+      this.show = true
+    }
+  }
 
 }
 </script>
@@ -197,5 +231,46 @@ export default {
   position: fixed;
   bottom: 30px;
   left: 30px;
+}
+// 点击报修项目的更换弹出Popup 弹出层
+.popup-project {
+  padding: 30px;
+  box-sizing: border-box;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 32px;
+    margin-bottom: 80px;
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .item {
+      font-size: 24px;
+      width: 210px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      background: #ffffff;
+      border-radius: 8px;
+      border: 2px solid #999;
+      margin-bottom: 30px;
+      color: #999;
+    }
+  }
+}
+// 点击报修项目的更换弹出Popup 弹出层 选中的高亮样式
+.active {
+  border: 2px solid #0090ff;
+  color: #0090ff;
+  font-size: 24px;
+  width: 210px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
 </style>
