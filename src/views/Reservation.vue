@@ -34,7 +34,8 @@
     <!-- 空调机型 -->
     <div class="air">
       <div class="item">空调机型</div>
-      <div class="item">请选择 <span> > </span></div>
+      <div class="item"
+           @click="showAirPopup">请选择 <span> > </span></div>
     </div>
     <div class="line"></div>
     <!-- 空调功率 -->
@@ -87,12 +88,14 @@
                 class="button">立即预约</van-button>
     <!-- 点击报修项目的更换弹出Popup 弹出层 -->
     <van-popup v-model="show"
+               :close-on-click-overlay="false"
                class="popup-project"
                round
                position="bottom"
                :style="{ height: '300px' }">
       <div class="top">
-        <div class="item">X</div>
+        <div class="item"
+             @click="closeProject">X</div>
         <div class="item">选择服务项目</div>
         <div class="item">✔️</div>
       </div>
@@ -107,6 +110,27 @@
         <div class="item">电热水器维修</div>
       </div>
     </van-popup>
+    <!-- 点击请选择空调机型弹出框 -->
+    <van-popup v-model="showAir"
+               :close-on-click-overlay="false"
+               class="popup-project"
+               round
+               position="bottom"
+               :style="{ height: '300px' }">
+      <div class="top">
+        <div class="item"
+             @click="closeProject">X</div>
+        <div class="item">请选择空调机型</div>
+        <div class="item">✔️</div>
+      </div>
+      <div class="content">
+        <div class="item active">定频挂机</div>
+        <div class="item">定频柜机</div>
+        <div class="item">变频挂机</div>
+        <div class="item">变频柜机</div>
+        <div class="item">风管机、天井机</div>
+      </div>
+    </van-popup>
   </div>
 </template>
 
@@ -114,13 +138,25 @@
 export default {
   data() {
     return {
-      show: false
+      // 报修项目
+      show: false,
+      // 空调机型
+      showAir: false
     }
   },
 
   methods: {
+    // 打开报修项目弹出层
     showPopup() {
       this.show = true
+    },
+    // 关闭报修项目弹出层
+    closeProject() {
+      this.show = false
+    },
+    // 打开空调机型弹出层
+    showAirPopup() {
+      this.showAir = true
     }
   }
 
