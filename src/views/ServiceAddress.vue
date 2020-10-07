@@ -10,7 +10,8 @@
          alt="背景图">
     <!-- 添加地址按钮 -->
     <van-button type="info"
-                class="button">添加地址</van-button>
+                class="button"
+                @click='goToNewAddress'>添加地址</van-button>
   </div>
 </template>
 
@@ -23,8 +24,12 @@ export default {
     }
   },
   methods: {
+    // 点击箭头跳转到上一级页面
     onClickLeft() {
       this.$router.go(-1)
+    },
+    goToNewAddress() {
+      this.$router.push({ path: '/newaddress' })
     }
   }
 

@@ -8,6 +8,8 @@ import JiaDianWeiXiu from '@/views/JiaDianWeiXiu'
 import Reservation from '@/views/Reservation'
 // 引入选择服务地址页面
 import ServiceAddress from '@/views/ServiceAddress'
+// 引入新增地址页面
+import NewAddress from '@/views/NewAddress'
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,6 +36,12 @@ const routes = [
     path: '/serviceaddress',
     name: 'ServiceAddress',
     component: ServiceAddress
+  },
+  {
+    // 新增地址 页面
+    path: '/newaddress',
+    name: 'NewAddress',
+    component: NewAddress
   }
 ]
 
