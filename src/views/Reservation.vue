@@ -41,16 +41,17 @@
     <!-- 空调功率 -->
     <div class="air">
       <div class="item">空调功率</div>
-      <div class="item">请选择 <span> > </span></div>
+      <div class="item"
+           @click="showAirPowerPopup">请选择 <span> > </span></div>
     </div>
     <div class="line"></div>
     <!-- 报修数量 -->
     <div class="air number">
       <div class="item">报修数量</div>
       <div class="item num ">
-        <div> - </div>
-        <div>1</div>
-        <div> + </div>
+        <div @click="sub"> - </div>
+        <div>{{count}}</div>
+        <div @click="add"> + </div>
       </div>
     </div>
     <!-- *服务地址 -->
@@ -59,7 +60,8 @@
         <span class="start">*</span>
         服务地址</div>
 
-      <div class="repairing-items text">请选择服务地址
+      <div class="repairing-items text"
+           @click="showAddressPopup">请选择服务地址
         <span> > </span>
       </div>
     </div>
@@ -69,8 +71,9 @@
       <div class="repairing-items">
         <span class="start">*</span>
         上门服务时间</div>
-
-      <div class="repairing-items text">请选择
+      <div>{{HometimeValue}}</div>
+      <div class="repairing-items text"
+           @click='showHomeTimePopup'>请选择
         <span> > </span>
       </div>
     </div>
@@ -119,7 +122,7 @@
                :style="{ height: '300px' }">
       <div class="top">
         <div class="item"
-             @click="closeProject">X</div>
+             @click="closeAirProject">X</div>
         <div class="item">请选择空调机型</div>
         <div class="item">✔️</div>
       </div>
@@ -131,6 +134,45 @@
         <div class="item">风管机、天井机</div>
       </div>
     </van-popup>
+    <!-- 点击空调功率弹出框 -->
+    <van-popup v-model="showAirPower"
+               :close-on-click-overlay="false"
+               class="popup-project"
+               round
+               position="bottom"
+               :style="{ height: '300px' }">
+      <div class="top">
+        <div class="item"
+             @click="closeAirPowerProject">X</div>
+        <div class="item">请选择空调频率</div>
+        <div class="item">✔️</div>
+      </div>
+      <div class="content">
+        <div class="item active">1P</div>
+        <div class="item">1.5P</div>
+        <div class="item">2P</div>
+        <div class="item">3P</div>
+        <div class="item">4P</div>
+        <div class="item">5P</div>
+      </div>
+    </van-popup>
+
+    <!-- 点击上门上门服务时间弹出层 -->
+    <van-popup v-model="showHomeTime"
+               :close-on-click-overlay="false"
+               class="popup-project"
+               round
+               position="bottom"
+               :style="{ height: '300px' }">
+      <van-datetime-picker v-model="currentDate"
+                           @cancel='cancelMask'
+                           @confirm='confirmMask'
+                           title="选择上门时间"
+                           confirm-button-text='✔️'
+                           cancel-button-text='X'
+                           :min-date="minDate"
+                           :max-date="maxDate" />
+    </van-popup>
   </div>
 </template>
 
@@ -141,7 +183,20 @@ export default {
       // 报修项目
       show: false,
       // 空调机型
-      showAir: false
+      showAir: false,
+      // 空调功率
+      showAirPower: false,
+      // 报修数量默认值
+      count: 1,
+      // 默认上门时间
+      HometimeValue: '',
+      // 上门服务时间
+      showHomeTime: false,
+      minDate: new Date(2020, 0, 1),
+      maxDate: new Date(2025, 10, 1),
+      // 获取当前时间
+      currentDate: new Date()
+
     }
   },
 
@@ -150,16 +205,81 @@ export default {
     showPopup() {
       this.show = true
     },
+    // 打开空调机型弹出层
+    showAirPopup() {
+      this.showAir = true
+    },
+    // 打开空调功率弹出层
+    showAirPowerPopup() {
+      this.showAirPower = true
+    },
+    // 打开服务地址
+    showAddressPopup() {
+      console.log('1')
+      this.showAddress = true
+    },
+    // 打开上门服务时间弹出层
+    showHomeTimePopup() {
+      this.showHomeTime = true
+    },
     // 关闭报修项目弹出层
     closeProject() {
       this.show = false
     },
-    // 打开空调机型弹出层
-    showAirPopup() {
-      this.showAir = true
-    }
-  }
+    // 关闭空调机型弹出层
+    closeAirProject() {
+      this.showAir = false
+    },
+    // 关闭空调功率弹出层
+    closeAirPowerProject() {
+      this.showAirPower = false
+    },
+    // 点击数量按钮 加法
+    add() {
+      this.count += 1
+    },
+    sub() {
+      if (this.count <= 1) return
+      this.count -= 1
+    },
+    // 点击上门服务时间关闭按钮,关闭弹出层
+    cancelMask() {
+      this.showHomeTime = false
+    },
+    confirmMask() {
+      this.HometimeValue = this.timeFormat(this.currentDate)
+      this.showHomeTime = false
+    },
+    // 格式化时间函数
+    timeFormat(time) { // 时间格式化 2019-09-08
+      const year = time.getFullYear()
+      const month = time.getMonth() + 1
+      const day = time.getDate()
+      const hour = time.getHours()
+      const mm = time.getMinutes()
+      // 日期以 短横线样式展示
+      var clock = year + '-'
 
+      if (month < 10) { clock += '0' }
+
+      clock += month + '-'
+
+      if (day < 10) { clock += '0' }
+
+      clock += day + ' '
+
+      if (hour < 10) { clock += '0' }
+
+      clock += hour + ':'
+      if (mm < 10) clock += '0'
+      clock += mm
+      return (clock)
+    }
+
+  },
+  mounted() {
+    this.timeFormat(new Date())
+  }
 }
 </script>
 

@@ -13,7 +13,8 @@ import {
   SwipeItem,
   Grid,
   GridItem,
-  Popup
+  Popup,
+  DatetimePicker
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -26,6 +27,7 @@ Vue.use(SwipeItem)
 Vue.use(Grid)
 Vue.use(GridItem)
 Vue.use(Popup)
+Vue.use(DatetimePicker)
 new Vue({
   router,
   store,
