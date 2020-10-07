@@ -61,7 +61,7 @@
         服务地址</div>
 
       <div class="repairing-items text"
-           @click="showAddressPopup">请选择服务地址
+           @click="goToServiceAddress">请选择服务地址
         <span> > </span>
       </div>
     </div>
@@ -213,10 +213,9 @@ export default {
     showAirPowerPopup() {
       this.showAirPower = true
     },
-    // 打开服务地址
-    showAddressPopup() {
-      console.log('1')
-      this.showAddress = true
+    // 点击选择服务地址跳转到服务地址页面
+    goToServiceAddress() {
+      this.$router.push({ path: '/serviceaddress' })
     },
     // 打开上门服务时间弹出层
     showHomeTimePopup() {
@@ -238,10 +237,12 @@ export default {
     add() {
       this.count += 1
     },
+    // 点击数量按钮 减法
     sub() {
       if (this.count <= 1) return
       this.count -= 1
     },
+
     // 点击上门服务时间关闭按钮,关闭弹出层
     cancelMask() {
       this.showHomeTime = false
