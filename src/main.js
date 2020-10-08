@@ -19,7 +19,8 @@ import {
   Form,
   Field,
   radio,
-  CellGroup
+  CellGroup,
+  Dialog
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -38,6 +39,7 @@ Vue.use(Form)
 Vue.use(Field)
 Vue.use(radio)
 Vue.use(CellGroup)
+Vue.use(Dialog)
 
 new Vue({
   router,

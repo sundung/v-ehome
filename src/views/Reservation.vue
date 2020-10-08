@@ -88,7 +88,8 @@
     </div>
     <!-- 立即预约按钮 -->
     <van-button type="info"
-                class="button">立即预约</van-button>
+                class="button"
+                @click="showReservationPopup">立即预约</van-button>
     <!-- 点击报修项目的更换弹出Popup 弹出层 -->
     <van-popup v-model="show"
                :close-on-click-overlay="false"
@@ -173,6 +174,29 @@
                            :min-date="minDate"
                            :max-date="maxDate" />
     </van-popup>
+    <!-- 点击立即预约按钮弹出框 -->
+    <!-- <van-popup v-model="showReservation"
+               :close-on-click-overlay="false"
+               class="popup-project"
+               round
+               :style="{ height: '40%',width: '80%'}">
+
+    </van-popup> -->
+    <van-dialog v-model="showReservation"
+                class="showReservationDialog"
+                :show-confirm-button='false'
+                :showCancelButton='false'>
+      <div class="content">
+        <div class="title">订单已提交</div>
+        <div class="line1"></div>
+        <div class="info">请耐心等待师傅接单上门维修！</div>
+      </div>
+      <div class="bottom">
+        <div class="longLine"></div>
+        <van-button class="btn"
+                    @click="goToOrder">我知道了</van-button>
+      </div>
+    </van-dialog>
   </div>
 </template>
 
@@ -195,8 +219,9 @@ export default {
       minDate: new Date(2020, 0, 1),
       maxDate: new Date(2025, 10, 1),
       // 获取当前时间
-      currentDate: new Date()
-
+      currentDate: new Date(),
+      // 弹出立即预约按钮
+      showReservation: false
     }
   },
 
@@ -275,8 +300,15 @@ export default {
       if (mm < 10) clock += '0'
       clock += mm
       return (clock)
+    },
+    // 打开立即预约弹出框
+    showReservationPopup() {
+      this.showReservation = true
+    },
+    // 点击立即预约弹出框中的我知道了按钮,跳转到订单页面
+    goToOrder() {
+      this.$router.push('/order')
     }
-
   },
   mounted() {
     this.timeFormat(new Date())
@@ -310,7 +342,7 @@ export default {
   width: 690px;
   height: 2px;
   background: #d7d7d7;
-  margin: auto;
+  margin: 0 auto;
 }
 // icon区域
 .icon {
@@ -429,5 +461,46 @@ export default {
   background: #ffffff;
   border-radius: 8px;
   margin-bottom: 30px;
+}
+// 立即预约弹出框 dialog
+.showReservationDialog {
+  width: 536px;
+  height: 527px;
+  background: #ffffff;
+  border-radius: 10px;
+  // 弹出框的内容区域
+  .content {
+    padding: 58px;
+    padding-bottom: 0;
+    .title {
+      margin-top: 10px;
+      font-size: 48px;
+    }
+    .line1 {
+      width: 47px;
+      height: 3px;
+      background: #111111;
+      margin: 32px 0;
+    }
+    .info {
+      height: 122px;
+      margin-bottom: 109px;
+      color: #333;
+    }
+  }
+  .bottom {
+    height: 87px;
+    line-height: 87px;
+    .longLine {
+      width: 100%;
+      height: 2px;
+      background: #111111;
+    }
+    .btn {
+      font-size: 32px;
+      color: #0090ff;
+      margin-left: 204px;
+    }
+  }
 }
 </style>
