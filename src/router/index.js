@@ -10,6 +10,8 @@ import Reservation from '@/views/Reservation'
 import ServiceAddress from '@/views/ServiceAddress'
 // 引入新增地址页面
 import NewAddress from '@/views/NewAddress'
+// 引入我的页面
+import Mine from '@/views/Mine'
 Vue.use(VueRouter)
 
 const routes = [
@@ -18,6 +20,12 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    // 我的页面
+    path: '/mine',
+    name: 'Mine',
+    component: Mine
   },
   {
     // 家电维修页面

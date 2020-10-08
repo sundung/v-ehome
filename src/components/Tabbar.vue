@@ -1,11 +1,13 @@
 <template>
   <div class="hello">
     <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item icon="home-o"
+                       @click="goToHome">首页</van-tabbar-item>
       <van-tabbar-item icon="label-o"
                        dot>订单</van-tabbar-item>
       <van-tabbar-item icon="friends-o"
-                       badge="5">我的</van-tabbar-item>
+                       badge="5"
+                       @click="goToMine">我的</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
@@ -16,6 +18,16 @@ export default {
   data() {
     return {
       active: 'home'
+    }
+  },
+  methods: {
+    // 跳转首页
+    goToHome() {
+      this.$router.push('/').catch(() => { })
+    },
+    // 跳转我的页面
+    goToMine() {
+      this.$router.push('/mine')
     }
   }
 }

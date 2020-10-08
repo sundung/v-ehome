@@ -18,7 +18,8 @@ import {
   NavBar,
   Form,
   Field,
-  radio
+  radio,
+  CellGroup
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -36,6 +37,8 @@ Vue.use(NavBar)
 Vue.use(Form)
 Vue.use(Field)
 Vue.use(radio)
+Vue.use(CellGroup)
+
 new Vue({
   router,
   store,
