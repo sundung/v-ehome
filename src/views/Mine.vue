@@ -10,7 +10,6 @@
       <div class="number">立即登录</div>
     </div>
     <!-- 表单信息区域 -->
-    <van-icon name="location-o" />
     <van-cell-group class="form">
       <van-field v-model="value1"
                  label="我的地址"
@@ -36,11 +35,17 @@
                  right-icon="arrow"
                  left-icon="todo-list-o" />
     </van-cell-group>
+    <Tabbar></Tabbar>
   </div>
 </template>
 
 <script>
+// 导入 Tabbar 组件
+import Tabbar from '@/components/Tabbar'
 export default {
+  components: {
+    Tabbar
+  },
   data() {
     return {
       value1: '',

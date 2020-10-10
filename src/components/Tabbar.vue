@@ -27,7 +27,7 @@ export default {
     },
     // 跳转我的页面
     goToMine() {
-      this.$router.push('/mine')
+      this.$router.push('/mine').catch(() => { })
     }
   }
 }

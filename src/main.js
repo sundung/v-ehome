@@ -20,7 +20,10 @@ import {
   Field,
   radio,
   CellGroup,
-  Dialog
+  Dialog,
+  Tab,
+  Tabs,
+  Icon
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -40,6 +43,9 @@ Vue.use(Field)
 Vue.use(radio)
 Vue.use(CellGroup)
 Vue.use(Dialog)
+Vue.use(Tab)
+Vue.use(Tabs)
+Vue.use(Icon)
 
 new Vue({
   router,
