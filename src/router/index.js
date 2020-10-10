@@ -14,6 +14,8 @@ import NewAddress from '@/views/NewAddress'
 import Mine from '@/views/Mine'
 // 引入订单页面
 import Order from '@/views/Order'
+// 引入登录页面
+import Login from '@/views/Login'
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,6 +36,12 @@ const routes = [
     path: '/order',
     name: 'Order',
     component: Order
+  },
+  {
+    // 登录页面
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     // 家电维修页面

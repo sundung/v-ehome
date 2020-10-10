@@ -7,7 +7,8 @@
     <!-- 头像信息区域 -->
     <div class="navgator">
       <div class="info"></div>
-      <div class="number">立即登录</div>
+      <div class="number"
+           @click="login">立即登录</div>
     </div>
     <!-- 表单信息区域 -->
     <van-cell-group class="form">
@@ -51,6 +52,11 @@ export default {
       value1: '',
       value2: '',
       value3: ''
+    }
+  },
+  methods: {
+    login() {
+      this.$router.push('/login')
     }
   }
 }
