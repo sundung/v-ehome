@@ -16,6 +16,8 @@ import Mine from '@/views/Mine'
 import Order from '@/views/Order'
 // 引入登录页面
 import Login from '@/views/Login'
+// 引入注册页面
+import Register from '@/views/Register'
 Vue.use(VueRouter)
 
 const routes = [
@@ -42,6 +44,12 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    // 注册页面
+    path: '/register',
+    name: 'Register',
+    component: Register
   },
   {
     // 家电维修页面

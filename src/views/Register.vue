@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 导航条 -->
-    <van-nav-bar title="登录"
+    <van-nav-bar title="注册"
                  class="nav-bar"
                  fixed />
     <!-- 注册/登录信息 -->
@@ -10,10 +10,17 @@
       <!-- 用户名 -->
       <van-field v-model="username"
                  class="login_form_item"
-                 name="用户名"
-                 label="用户名"
+                 name="邮箱/手机号"
+                 label="邮箱/手机号"
                  placeholder="用户名4-12位"
                  :rules="[{ required: true, message: '用户名不能为空' }]" />
+      <!-- 验证码 -->
+      <van-field v-model="authcode"
+                 class="login_form_item"
+                 name="验证码"
+                 label="验证码"
+                 placeholder="验证码-6位"
+                 :rules="[{ required: true, message: '验证码不能为空' }]" />
       <!-- 密码 -->
       <van-field v-model="password"
                  class="login_form_item"
@@ -28,20 +35,13 @@
                     block
                     type="info"
                     native-type="submit">
-          登录
+          注册
         </van-button>
       </div>
     </van-form>
     <!-- 没有账号去往注册页面 -->
     <div class="register"
-         @click="goToRegister">没有账号?立即注册</div>
-    <!-- 其他登录方式 -->
-    <div class="font">
-      <div class="item iconfont icon-weixin"></div>
-      <div class="item iconfont icon-qq"></div>
-      <div class="item iconfont icon-weibo"></div>
-    </div>
-    <div class=" info">其他登录方式</div>
+         @click="goToLogin">已经有账号?立即登录</div>
   </div>
 </template>
 
@@ -49,21 +49,20 @@
 export default {
   data() {
     return {
-      username: 'admin',
-      password: 'admin'
+      // 用户名
+      username: '',
+      // 密码
+      password: '',
+      // 验证码
+      authcode: ''
     }
   },
   methods: {
-    onSubmit(values) {
-      console.log('submit', values)
-      // 跳往首页
-      this.$router.push('/')
-    },
-    // 跳转到注册页面
-    goToRegister() {
-      this.$router.push('/register')
+    goToLogin() {
+      this.$router.push('/login')
     }
   }
+
 }
 </script>
 
@@ -97,22 +96,6 @@ export default {
 }
 // 去注册信息
 .register {
-  font-size: 32px;
-  color: red;
-  width: 50%;
-  text-align: center;
-  margin: 0 auto;
-}
-// 其他登录方式
-.font {
-  display: flex;
-  justify-content: center;
-  .item {
-    font-size: 60px;
-    margin: 240px 30px 20px;
-  }
-}
-.info {
   font-size: 32px;
   color: red;
   width: 50%;
