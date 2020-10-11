@@ -39,6 +39,10 @@ export default {
 // 修改 Tab 栏的高度
 /deep/ .van-tabs__wrap {
   height: 88px;
+  // 修改 底部条宽度
+  /deep/ .van-tabs__line {
+    width: 96px;
+  }
   // 修改 Tab栏中文字的大小
   /deep/ .van-tab {
     font-size: 28px;
