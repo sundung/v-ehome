@@ -60,6 +60,9 @@ export default {
   methods: {
     goToLogin() {
       this.$router.push('/login')
+    },
+    onSubmit() {
+      console.log('注册')
     }
   }
 
