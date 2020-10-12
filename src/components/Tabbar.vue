@@ -4,7 +4,8 @@
       <van-tabbar-item icon="home-o"
                        @click="goToHome">首页</van-tabbar-item>
       <van-tabbar-item icon="label-o"
-                       dot>订单</van-tabbar-item>
+                       dot
+                       @click="goToOrder">订单</van-tabbar-item>
       <van-tabbar-item icon="friends-o"
                        badge="5"
                        @click="goToMine">我的</van-tabbar-item>
@@ -28,6 +29,10 @@ export default {
     // 跳转我的页面
     goToMine() {
       this.$router.push('/mine').catch(() => { })
+    },
+    // 跳转订单首页
+    goToOrder() {
+      this.$router.push('/order').catch(() => { })
     }
   }
 }
