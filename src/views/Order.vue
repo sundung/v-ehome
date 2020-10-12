@@ -26,7 +26,15 @@
         <OrderEnd></OrderEnd>
       </van-tab>
       <van-tab class="tab"
-               title="全部">内容 4</van-tab>
+               title="全部">
+        <OrderWaitHome></OrderWaitHome>
+        <OrderWaitingList></OrderWaitingList>
+        <OrderCancel></OrderCancel>
+        <OrderService></OrderService>
+        <OrderPay></OrderPay>
+        <OrderPaid></OrderPaid>
+        <OrderEnd></OrderEnd>
+      </van-tab>
     </van-tabs>
     <Tabbar></Tabbar>
   </div>
