@@ -8,13 +8,16 @@
               sticky>
 
       <van-tab class="tab"
-               title="标签 1">内容 1</van-tab>
+               title="待服务">
+        <!-- 待上门 -->
+        <OrderWaitHome></OrderWaitHome>
+      </van-tab>
       <van-tab class="tab"
-               title="标签 2">内容 2</van-tab>
+               title="服务中">内容 2</van-tab>
       <van-tab class="tab"
-               title="标签 3">内容 3</van-tab>
+               title="已结束">内容 3</van-tab>
       <van-tab class="tab"
-               title="标签 4">内容 4</van-tab>
+               title="全部">内容 4</van-tab>
     </van-tabs>
     <Tabbar></Tabbar>
   </div>
@@ -23,9 +26,11 @@
 <script>
 // 导入 Tabbar 组件
 import Tabbar from '@/components/Tabbar'
+// 引入 待上门订单
+import OrderWaitHome from '@/components/OrderWaitHome'
 export default {
   components: {
-    Tabbar
+    Tabbar, OrderWaitHome
   },
   data() {
     return {
