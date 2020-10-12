@@ -24,7 +24,8 @@ import {
   Dialog,
   Tab,
   Tabs,
-  Icon
+  Icon,
+  Divider
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -47,6 +48,7 @@ Vue.use(Dialog)
 Vue.use(Tab)
 Vue.use(Tabs)
 Vue.use(Icon)
+Vue.use(Divider)
 
 new Vue({
   router,

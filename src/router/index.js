@@ -18,6 +18,9 @@ import Order from '@/views/Order'
 import Login from '@/views/Login'
 // 引入注册页面
 import Register from '@/views/Register'
+// 引入维修清单页面
+import Maintenance from '@/components/Maintenance'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -74,6 +77,12 @@ const routes = [
     path: '/newaddress',
     name: 'NewAddress',
     component: NewAddress
+  },
+  {
+    // 维修清单 页面
+    path: '/maintenance',
+    name: 'Maintenance',
+    component: Maintenance
   }
 ]
 

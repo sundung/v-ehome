@@ -49,13 +49,25 @@
     <!-- 底部获取维修按钮区域 -->
     <div class="button">
       <van-button plain
-                  type="info">获取维修清单</van-button>
+                  type="info"
+                  @click='goToMaintenance'>获取维修清单</van-button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    // 跳转到维修清单页面
+    goToMaintenance() {
+      this.$router.push('/maintenance')
+    }
+  }
 
 }
 </script>

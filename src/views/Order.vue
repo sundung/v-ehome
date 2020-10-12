@@ -8,6 +8,7 @@
               sticky>
 
       <van-tab class="tab"
+               badge='2'
                title="待服务">
         <!-- 待接单 -->
         <OrderWaitingList></OrderWaitingList>
@@ -15,18 +16,21 @@
         <OrderWaitHome></OrderWaitHome>
       </van-tab>
       <van-tab class="tab"
-               title="服务中">
+               title="服务中"
+               badge='3'>
         <OrderService></OrderService>
         <OrderPay></OrderPay>
         <OrderPaid></OrderPaid>
       </van-tab>
       <van-tab class="tab"
-               title="已结束">
+               title="已结束"
+               badge='2'>
         <OrderCancel></OrderCancel>
         <OrderEnd></OrderEnd>
       </van-tab>
       <van-tab class="tab"
-               title="全部">
+               title="全部"
+               badge='7'>
         <OrderWaitHome></OrderWaitHome>
         <OrderWaitingList></OrderWaitingList>
         <OrderCancel></OrderCancel>
