@@ -2,7 +2,7 @@
   <div class="order_wrap">
     <div class="order_top">
       <div class="avator">
-        <img src='../assets/imgs/mine/morentouxiang.png'
+        <img src='../../assets/imgs/mine/morentouxiang.png'
              alt="用户头像">
         <div class="name">张师傅</div>
       </div>
@@ -78,6 +78,10 @@ export default {
         height: 70px;
         margin-right: 20px;
       }
+    }
+    // 订单状态
+    .state {
+      color: #0090ff;
     }
   }
   // 订单信息的内容

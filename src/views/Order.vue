@@ -9,6 +9,8 @@
 
       <van-tab class="tab"
                title="待服务">
+        <!-- 待接单 -->
+        <OrderWaitingList></OrderWaitingList>
         <!-- 待上门 -->
         <OrderWaitHome></OrderWaitHome>
       </van-tab>
@@ -26,11 +28,16 @@
 <script>
 // 导入 Tabbar 组件
 import Tabbar from '@/components/Tabbar'
-// 引入 待上门订单
-import OrderWaitHome from '@/components/OrderWaitHome'
+// 引入 待上门订单 item 展示
+import OrderWaitHome from '@/components/OrderListItem/OrderWaitHome'
+// 引入待接单 item 展示
+import OrderWaitingList from '@/components/OrderListItem/OrderWaitingList'
+
 export default {
   components: {
-    Tabbar, OrderWaitHome
+    Tabbar,
+    OrderWaitHome,
+    OrderWaitingList
   },
   data() {
     return {
