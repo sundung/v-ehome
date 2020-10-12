@@ -23,6 +23,7 @@
       <van-tab class="tab"
                title="已结束">
         <OrderCancel></OrderCancel>
+        <OrderEnd></OrderEnd>
       </van-tab>
       <van-tab class="tab"
                title="全部">内容 4</van-tab>
@@ -46,6 +47,8 @@ import OrderService from '@/components/OrderListItem/OrderService'
 import OrderPay from '@/components/OrderListItem/OrderPay'
 // 引已待支付 item 展示项
 import OrderPaid from '@/components/OrderListItem/OrderPaid'
+// 引已结束 item 展示项
+import OrderEnd from '@/components/OrderListItem/OrderEnd'
 export default {
   components: {
     Tabbar,
@@ -54,7 +57,8 @@ export default {
     OrderCancel,
     OrderService,
     OrderPay,
-    OrderPaid
+    OrderPaid,
+    OrderEnd
   },
   data() {
     return {
