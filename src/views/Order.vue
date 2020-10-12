@@ -17,7 +17,9 @@
       <van-tab class="tab"
                title="服务中">内容 2</van-tab>
       <van-tab class="tab"
-               title="已结束">内容 3</van-tab>
+               title="已结束">
+        <OrderCancel></OrderCancel>
+      </van-tab>
       <van-tab class="tab"
                title="全部">内容 4</van-tab>
     </van-tabs>
@@ -32,12 +34,14 @@ import Tabbar from '@/components/Tabbar'
 import OrderWaitHome from '@/components/OrderListItem/OrderWaitHome'
 // 引入待接单 item 展示
 import OrderWaitingList from '@/components/OrderListItem/OrderWaitingList'
-
+// 引入已取消订单
+import OrderCancel from '@/components/OrderListItem/OrderCancel'
 export default {
   components: {
     Tabbar,
     OrderWaitHome,
-    OrderWaitingList
+    OrderWaitingList,
+    OrderCancel
   },
   data() {
     return {
