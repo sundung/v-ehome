@@ -18,6 +18,7 @@
                title="服务中">
         <OrderService></OrderService>
         <OrderPay></OrderPay>
+        <OrderPaid></OrderPaid>
       </van-tab>
       <van-tab class="tab"
                title="已结束">
@@ -43,6 +44,8 @@ import OrderCancel from '@/components/OrderListItem/OrderCancel'
 import OrderService from '@/components/OrderListItem/OrderService'
 // 引入待支付 item 展示项
 import OrderPay from '@/components/OrderListItem/OrderPay'
+// 引已待支付 item 展示项
+import OrderPaid from '@/components/OrderListItem/OrderPaid'
 export default {
   components: {
     Tabbar,
@@ -50,7 +53,8 @@ export default {
     OrderWaitingList,
     OrderCancel,
     OrderService,
-    OrderPay
+    OrderPay,
+    OrderPaid
   },
   data() {
     return {
