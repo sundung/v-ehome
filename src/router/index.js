@@ -24,6 +24,7 @@ import Maintenance from '@/components/Maintenance'
 import OrderWaitDetail from '@/components/OrderDetail/OrderWaitDetail'
 // 引入品质保障详情
 import QualityAssuranceDetail from '@/components/OrderDetailComponents/QualityAssuranceDetail'
+import CancelOrderDetail from '@/components/OrderDetailComponents/CancelOrderDetail'
 
 Vue.use(VueRouter)
 
@@ -99,6 +100,12 @@ const routes = [
     path: '/QualityAssuranceDetail',
     name: 'QualityAssuranceDetail',
     component: QualityAssuranceDetail
+  },
+  {
+    // 取消订单详情 页面
+    path: '/CancelOrderDetail',
+    name: 'CancelOrderDetail',
+    component: CancelOrderDetail
   }
 ]
 

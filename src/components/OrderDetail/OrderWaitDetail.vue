@@ -90,6 +90,7 @@ export default {
     onClickLeft() {
       this.$router.go(-1)
     },
+    // 点击服务保障组件 跳转到服务保障详情页面
     goToQualityAssuranceDetail() {
       this.$router.push('/QualityAssuranceDetail')
     },
@@ -99,10 +100,9 @@ export default {
     },
     // 取消订单的确认事件- 跳转到取消订单详情页面
     cancelOrderConfirm() {
-      // this.$router.push('/')
-      console.log('123')
+      this.$router.push('/CancelOrderDetail')
     },
-    // 取消订单的取消事件- 跳转到取消订单详情页面
+    // 取消订单的取消事件- 关闭弹出层
     cancelOrderCancel() {
       this.showCancelOrderDialog = false
     },
