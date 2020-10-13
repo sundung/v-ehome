@@ -21,6 +21,8 @@
     <OrderDetailInfo></OrderDetailInfo>
     <!-- 品质保障,售后 -->
     <QualityAssurance @click.native='goToQualityAssuranceDetail'></QualityAssurance>
+    <!-- 收费说明组件 -->
+    <Information></Information>
   </div>
 </template>
 
@@ -29,11 +31,14 @@
 import OrderDetailInfo from '@/components/OrderDetailComponents/OrderDetailInfo'
 // 引入品质保障
 import QualityAssurance from '@/components/OrderDetailComponents/QualityAssurance'
+// 引入 收费说明组件
+import Information from '@/components/OrderDetailComponents/Information'
 
 export default {
   components: {
     OrderDetailInfo,
-    QualityAssurance
+    QualityAssurance,
+    Information
   },
   data() {
     return {
