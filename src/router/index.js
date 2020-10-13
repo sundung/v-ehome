@@ -22,6 +22,8 @@ import Register from '@/views/Register'
 import Maintenance from '@/components/Maintenance'
 // 引入 待接单详情
 import OrderWaitDetail from '@/components/OrderDetail/OrderWaitDetail'
+// 引入品质保障详情
+import QualityAssuranceDetail from '@/components/OrderDetailComponents/QualityAssuranceDetail'
 
 Vue.use(VueRouter)
 
@@ -91,6 +93,12 @@ const routes = [
     path: '/orderwaitdetail',
     name: 'OrderWaitDetail',
     component: OrderWaitDetail
+  },
+  {
+    // 品质保障详情 页面
+    path: '/QualityAssuranceDetail',
+    name: 'QualityAssuranceDetail',
+    component: QualityAssuranceDetail
   }
 ]
 

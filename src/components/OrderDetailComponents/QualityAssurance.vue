@@ -2,7 +2,7 @@
   <div>
     <div class="quality_wrap">
       <div class="item">
-        <img src="../../assets/imgs/pinzhibaozhang.png"
+        <img src="../../assets/imgs/feiyong.png"
              alt=""
              class="img">
         <div class="text">无前期费用</div>
@@ -14,7 +14,7 @@
         <div class="text">品质有保障</div>
       </div>
       <div class="item">
-        <img src="../../assets/imgs/pinzhibaozhang.png"
+        <img src="../../assets/imgs/shouhou.png"
              alt=""
              class="img">
         <div class="text">超长售后</div>

@@ -19,7 +19,8 @@
     </div>
     <!-- 订单详情信息 -->
     <OrderDetailInfo></OrderDetailInfo>
-    <QualityAssurance></QualityAssurance>
+    <!-- 品质保障,售后 -->
+    <QualityAssurance @click.native='goToQualityAssuranceDetail'></QualityAssurance>
   </div>
 </template>
 
@@ -43,10 +44,10 @@ export default {
     // 返回上一级路由
     onClickLeft() {
       this.$router.go(-1)
+    },
+    goToQualityAssuranceDetail() {
+      this.$router.push('/QualityAssuranceDetail')
     }
-  },
-  mounted() {
-    console.log('@')
   }
 }
 </script>
