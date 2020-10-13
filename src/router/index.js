@@ -24,6 +24,8 @@ import Maintenance from '@/components/Maintenance'
 import OrderWaitDetail from '@/components/OrderDetail/OrderWaitDetail'
 // 引入 待上门详情
 import OrderWaitHomeDetail from '@/components/OrderDetail/OrderWaitHomeDetail'
+// 引入 已结束订单详情页面
+import OrderEndDetail from '@/components/OrderDetail/OrderEndDetail'
 // 引入服务中订单详情
 import OrderServingDetail from '@/components/OrderDetail/OrderServingDetail'
 // 引入品质保障详情
@@ -32,6 +34,8 @@ import QualityAssuranceDetail from '@/components/OrderDetailComponents/QualityAs
 import CancelOrderDetail from '@/components/OrderDetailComponents/CancelOrderDetail'
 // 引入 结束服务原因详情页面
 import EndService from '@/components/OrderDetailComponents/EndService'
+// 引入 收费标准表格组件
+import ChargingStandards from '@/components/ChargingStandards'
 
 Vue.use(VueRouter)
 
@@ -97,6 +101,12 @@ const routes = [
     component: Maintenance
   },
   {
+    // 维修标准组件 页面
+    path: '/ChargingStandards',
+    name: 'ChargingStandards',
+    component: ChargingStandards
+  },
+  {
     // 待接单详情 页面
     path: '/orderwaitdetail',
     name: 'OrderWaitDetail',
@@ -113,6 +123,12 @@ const routes = [
     path: '/OrderServingDetail',
     name: 'OrderServingDetail',
     component: OrderServingDetail
+  },
+  {
+    // 已结束订单详情页面
+    path: '/OrderEndDetail',
+    name: 'OrderEndDetail',
+    component: OrderEndDetail
   },
   {
     // 品质保障详情 页面

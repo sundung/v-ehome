@@ -26,7 +26,7 @@
       <van-tab class="tab"
                title="已结束"
                badge='2'>
-        <OrderCancel></OrderCancel>
+        <OrderCancel @click.native='goToOrderEndDetail'></OrderCancel>
         <OrderEnd></OrderEnd>
       </van-tab>
       <van-tab class="tab"
@@ -90,6 +90,10 @@ export default {
     //  跳转到服务中订单详情
     goToOrderServingDetail() {
       this.$router.push('/OrderServingDetail')
+    },
+    // 跳转到已结束订单详情
+    goToOrderEndDetail() {
+      this.$router.push('/OrderEndDetail')
     }
   }
 }
