@@ -6,7 +6,7 @@
                  left-arrow
                  @click-left="onClickLeft"
                  fixed />
-    <!-- 订单详情主题 -->
+    <!-- 订单详情主体 -->
     <div class="order_detail_wrap">
       <div class="header">
         <div class="title">待接单</div>
@@ -27,6 +27,35 @@
     <ChargingStandards></ChargingStandards>
     <!-- 联系人信息组件 -->
     <ContactInfo></ContactInfo>
+    <!-- 解决的底部固定定位遮挡内容的问题 -->
+    <div class="height"></div>
+    <!-- 底部按钮区域 -->
+    <div class="button">
+      <van-button class="left item"
+                  @click="dialogCancel">取消订单</van-button>
+      <van-button class="right item"
+                  @click="goToReservation">修改服务时间</van-button>
+    </div>
+    <!-- 取消订单组件的弹出框 -->
+    <van-dialog v-model="showCancelOrderDialog"
+                class="dialog_cancel"
+                :show-confirm-button='false'>
+      <div class="title">请仔细阅读下方文字后再确定是否取消订单！</div>
+      <div class="short_line"></div>
+      <div class="content">
+        我们将会对订单进行实时跟踪，有效的保障您的合法权益，私下交易将无法享受到赔、财产安全保障、其他售后权益保障！
+      </div>
+      <div class="line"></div>
+      <div class="bottom">
+        <van-button class="confirm"
+                    @click='cancelOrderConfirm'>确定取消</van-button>
+
+        <div class="vertical_line"></div>
+
+        <van-button class="cancel"
+                    @click="cancelOrderCancel">暂不取消</van-button>
+      </div>
+    </van-dialog>
   </div>
 </template>
 
@@ -51,7 +80,9 @@ export default {
   },
   data() {
     return {
-      time: 30 * 60 * 60 * 1000
+      time: 30 * 60 * 60 * 1000,
+      // 控制取消订单的出现
+      showCancelOrderDialog: false
     }
   },
   methods: {
@@ -61,6 +92,23 @@ export default {
     },
     goToQualityAssuranceDetail() {
       this.$router.push('/QualityAssuranceDetail')
+    },
+    // 弹出,取消订单的弹出框
+    dialogCancel() {
+      this.showCancelOrderDialog = true
+    },
+    // 取消订单的确认事件- 跳转到取消订单详情页面
+    cancelOrderConfirm() {
+      // this.$router.push('/')
+      console.log('123')
+    },
+    // 取消订单的取消事件- 跳转到取消订单详情页面
+    cancelOrderCancel() {
+      this.showCancelOrderDialog = false
+    },
+    // 点击修改服务时间跳转到 在线预约页面,从新修改时间
+    goToReservation() {
+      this.$router.push('/reservation')
     }
   }
 }
@@ -88,7 +136,7 @@ export default {
   }
 }
 
-// 订单详情主题开始
+// 订单详情主体开始
 .order_detail_wrap {
   margin-top: 100px;
   // 订单头部
@@ -118,6 +166,82 @@ export default {
       text-align: center;
       background: #ffffff;
       border-radius: 8px;
+    }
+  }
+}
+.height {
+  height: 58px;
+}
+// 底部按钮区域
+.button {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750px;
+  height: 158px;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px 0px rgba(196, 196, 196, 0.3);
+  padding: 30px;
+  box-sizing: border-box;
+  .item {
+    width: 336px;
+    height: 98px;
+    border-radius: 8px;
+    color: #fff;
+  }
+  .left {
+    background-color: #ccc;
+    margin-right: 18px;
+  }
+  .right {
+    background-color: #0090ff;
+  }
+}
+// 取消订单弹出框
+.dialog_cancel {
+  width: 536px;
+  height: 527px;
+  background-color: #fff;
+  box-sizing: border-box;
+  .title {
+    color: #111;
+    font-size: 36px;
+    padding: 64px 58px 0;
+  }
+  .short_line {
+    width: 47px;
+    height: 3px;
+    background: #111111;
+    margin: 32px 58px;
+  }
+  .content {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 44px;
+    padding: 0 58px 0;
+  }
+  .line {
+    width: 536px;
+    height: 2px;
+    background: #d7d7d7;
+    margin: 0 auto;
+  }
+  .bottom {
+    padding: 21px 70px;
+    display: flex;
+    justify-content: space-between;
+    .vertical_line {
+      width: 2px;
+      height: 38px;
+      background: #d7d7d7;
+    }
+    .confirm {
+      font-size: 32px;
+      color: #999;
+    }
+    .cancel {
+      font-size: 32px;
+      color: #0090ff;
     }
   }
 }
