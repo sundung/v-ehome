@@ -25,14 +25,23 @@
     <ChargingStandards></ChargingStandards>
     <!-- 联系人信息组件 -->
     <ContactInfo></ContactInfo>
+    <!-- 结束服务按钮 -->
+    <van-button class="end_service_button">结束服务</van-button>
+    <!-- 警告信息 -->
+    <div class="warn_info">
+      <div class="content">
+        在线支付的订单是处理退款、赔偿等问题的唯一凭据，私下交易权益保障！</div>
+    </div>
     <!-- 解决的底部固定定位遮挡内容的问题 -->
     <div class="height"></div>
     <!-- 底部按钮区域 -->
     <div class="button">
-      <van-button class="left item"
-                  @click="goToEndService">结束服务</van-button>
-      <van-button class="right item"
-                  @click="goToMaintenance">获取维修清单</van-button>
+      <div class=" left item">
+        <div class="total"> 维修总价：</div>
+        <div class="price">180.00元</div>
+      </div>
+      <van-button class="right"
+                  @click="goToMaintenance">支付</van-button>
     </div>
     <!-- 取消订单组件的弹出框 -->
     <van-dialog v-model="showCancelOrderDialog"
@@ -158,8 +167,33 @@ export default {
     }
   }
 }
+// 结束服务按钮样式
+.end_service_button {
+  width: 690px;
+  height: 98px;
+  background: #0090ff;
+  border-radius: 8px;
+  font-size: 32px;
+  color: #fff;
+  margin: 30px;
+}
+// 警告信息
+.warn_info {
+  position: fixed;
+  left: 0;
+  bottom: 148px;
+  width: 750px;
+  height: 60px;
+  background: #fdf1f1;
+  padding: 16px 30px;
+  box-sizing: border-box;
+  .content {
+    font-size: 20px;
+    color: #ff3b30;
+  }
+}
 .height {
-  height: 58px;
+  height: 108px;
 }
 // 底部按钮区域
 .button {
@@ -167,24 +201,28 @@ export default {
   left: 0;
   bottom: 0;
   width: 750px;
-  height: 158px;
+  height: 148px;
   background: #ffffff;
   box-shadow: 0px 0px 20px 0px rgba(196, 196, 196, 0.3);
   padding: 30px;
   box-sizing: border-box;
-  .item {
-    width: 336px;
-    height: 98px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 32px;
-  }
+  display: flex;
+  justify-content: space-between;
   .left {
-    background-color: #00c3ff;
-    margin-right: 18px;
+    display: flex;
+    margin-top: 28px;
+    font-size: 24px;
+    .price {
+      color: #0090ff;
+    }
   }
   .right {
     background-color: #0090ff;
+    color: #fff;
+    font-size: 32px;
+    width: 336px;
+    height: 98px;
+    border-radius: 8px;
   }
 }
 // 取消订单弹出框
