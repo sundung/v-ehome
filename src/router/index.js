@@ -24,9 +24,14 @@ import Maintenance from '@/components/Maintenance'
 import OrderWaitDetail from '@/components/OrderDetail/OrderWaitDetail'
 // 引入 待上门详情
 import OrderWaitHomeDetail from '@/components/OrderDetail/OrderWaitHomeDetail'
+// 引入服务中订单详情
+import OrderServingDetail from '@/components/OrderDetail/OrderServingDetail'
 // 引入品质保障详情
 import QualityAssuranceDetail from '@/components/OrderDetailComponents/QualityAssuranceDetail'
+//  引入 取消订单原因详情页面
 import CancelOrderDetail from '@/components/OrderDetailComponents/CancelOrderDetail'
+// 引入 结束服务原因详情页面
+import EndService from '@/components/OrderDetailComponents/EndService'
 
 Vue.use(VueRouter)
 
@@ -103,7 +108,12 @@ const routes = [
     name: 'OrderWaitHomeDetail',
     component: OrderWaitHomeDetail
   },
-
+  {
+    // 服务中详情页面
+    path: '/OrderServingDetail',
+    name: 'OrderServingDetail',
+    component: OrderServingDetail
+  },
   {
     // 品质保障详情 页面
     path: '/QualityAssuranceDetail',
@@ -111,10 +121,16 @@ const routes = [
     component: QualityAssuranceDetail
   },
   {
-    // 取消订单详情 页面
+    // 取消订单原因详情 页面
     path: '/CancelOrderDetail',
     name: 'CancelOrderDetail',
     component: CancelOrderDetail
+  },
+  {
+    // 结束服务原因详情 页面
+    path: '/EndService',
+    name: 'EndService',
+    component: EndService
   }
 ]
 

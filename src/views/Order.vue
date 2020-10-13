@@ -18,7 +18,8 @@
       <van-tab class="tab"
                title="服务中"
                badge='3'>
-        <OrderService></OrderService>
+        <!-- 服务中 -->
+        <OrderService @click.native="goToOrderServingDetail"></OrderService>
         <OrderPay></OrderPay>
         <OrderPaid></OrderPaid>
       </van-tab>
@@ -85,6 +86,10 @@ export default {
     // 跳转到接上门订单详情
     goToOrderWaitHomeDetail() {
       this.$router.push('/OrderWaitHomeDetail')
+    },
+    //  跳转到服务中订单详情
+    goToOrderServingDetail() {
+      this.$router.push('/OrderServingDetail')
     }
   }
 }

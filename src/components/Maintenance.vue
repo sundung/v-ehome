@@ -93,9 +93,9 @@ export default {
     onClickLeft() {
       this.$router.go(-1)
     },
-    // 提交表单
+    // 提交维修清单,跳转到服务中订单详情页面
     onSubmit() {
-      console.log('提交表单')
+      this.$router.push('/OrderServingDetail')
     }
   }
 }
