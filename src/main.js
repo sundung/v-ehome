@@ -25,7 +25,8 @@ import {
   Tab,
   Tabs,
   Icon,
-  Divider
+  Divider,
+  CountDown
 } from 'vant'
 
 Vue.config.productionTip = false
@@ -49,6 +50,7 @@ Vue.use(Tab)
 Vue.use(Tabs)
 Vue.use(Icon)
 Vue.use(Divider)
+Vue.use(CountDown)
 
 new Vue({
   router,

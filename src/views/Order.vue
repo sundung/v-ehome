@@ -11,9 +11,9 @@
                badge='2'
                title="待服务">
         <!-- 待接单 -->
-        <OrderWaitingList></OrderWaitingList>
+        <OrderWaitingList @click.native="goToOrderWaitDetail"></OrderWaitingList>
         <!-- 待上门 -->
-        <OrderWaitHome></OrderWaitHome>
+        <OrderWaitHome @click="goToOrderWaitHomeDetail"></OrderWaitHome>
       </van-tab>
       <van-tab class="tab"
                title="服务中"
@@ -75,6 +75,16 @@ export default {
   data() {
     return {
       active: 0
+    }
+  },
+  methods: {
+    // 跳转待接单详情
+    goToOrderWaitDetail() {
+      this.$router.push('/orderwaitdetail')
+    },
+    // 跳转到接上门订单详情
+    goToOrderWaitHomeDetail() {
+      console.log('123')
     }
   }
 }

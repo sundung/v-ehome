@@ -20,6 +20,8 @@ import Login from '@/views/Login'
 import Register from '@/views/Register'
 // 引入维修清单页面
 import Maintenance from '@/components/Maintenance'
+// 引入 待接单详情
+import OrderWaitDetail from '@/components/OrderDetail/OrderWaitDetail'
 
 Vue.use(VueRouter)
 
@@ -83,6 +85,12 @@ const routes = [
     path: '/maintenance',
     name: 'Maintenance',
     component: Maintenance
+  },
+  {
+    // 待接单详情 页面
+    path: '/orderwaitdetail',
+    name: 'OrderWaitDetail',
+    component: OrderWaitDetail
   }
 ]
 
