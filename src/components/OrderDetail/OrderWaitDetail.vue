@@ -23,6 +23,10 @@
     <QualityAssurance @click.native='goToQualityAssuranceDetail'></QualityAssurance>
     <!-- 收费说明组件 -->
     <Information></Information>
+    <!-- 收费标准表格组件 -->
+    <ChargingStandards></ChargingStandards>
+    <!-- 联系人信息组件 -->
+    <ContactInfo></ContactInfo>
   </div>
 </template>
 
@@ -33,12 +37,17 @@ import OrderDetailInfo from '@/components/OrderDetailComponents/OrderDetailInfo'
 import QualityAssurance from '@/components/OrderDetailComponents/QualityAssurance'
 // 引入 收费说明组件
 import Information from '@/components/OrderDetailComponents/Information'
-
+// 引入 收费标准 表格组件
+import ChargingStandards from '@/components/ChargingStandards'
+// 引入联系人信息组件
+import ContactInfo from '@/components/OrderDetailComponents/ContactInfo'
 export default {
   components: {
     OrderDetailInfo,
     QualityAssurance,
-    Information
+    Information,
+    ChargingStandards,
+    ContactInfo
   },
   data() {
     return {
