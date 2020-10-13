@@ -6,7 +6,7 @@
                  left-arrow
                  @click-left="onClickLeft"
                  fixed />
-    <!-- 维修清单主题 -->
+    <!-- 维修清单主体 -->
     <div class="main">
       <van-form @submit="onSubmit">
         <van-field class="item"

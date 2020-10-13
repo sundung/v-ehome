@@ -1,0 +1,238 @@
+<template>
+  <div>
+    <!-- 导航条 -->
+    <van-nav-bar class="nav-bar"
+                 left-text="订单详情"
+                 left-arrow
+                 @click-left="onClickLeft"
+                 fixed />
+    <!-- 订单详情主体 -->
+    <div class="order_detail_wrap">
+      <div class="header">
+        <div class="title">待支付</div>
+        <div class="content">师傅确认故障，已提交维修清单，确认维修请在线支付！</div>
+      </div>
+    </div>
+    <!-- 订单详情信息 -->
+    <OrderDetailInfo></OrderDetailInfo>
+    <!-- 品质保障,售后 -->
+    <QualityAssurance @click.native='goToQualityAssuranceDetail'></QualityAssurance>
+    <!-- 维修清单组件 -->
+    <MaintenancePartsList></MaintenancePartsList>
+    <!-- 收费说明组件 -->
+    <Information></Information>
+    <!-- 收费标准表格组件 -->
+    <ChargingStandards></ChargingStandards>
+    <!-- 联系人信息组件 -->
+    <ContactInfo></ContactInfo>
+    <!-- 解决的底部固定定位遮挡内容的问题 -->
+    <div class="height"></div>
+    <!-- 底部按钮区域 -->
+    <div class="button">
+      <van-button class="left item"
+                  @click="goToEndService">结束服务</van-button>
+      <van-button class="right item"
+                  @click="goToMaintenance">获取维修清单</van-button>
+    </div>
+    <!-- 取消订单组件的弹出框 -->
+    <van-dialog v-model="showCancelOrderDialog"
+                class="dialog_cancel"
+                :show-confirm-button='false'>
+      <div class="title">请仔细阅读下方文字后再确定是否取消订单！</div>
+      <div class="short_line"></div>
+      <div class="content">
+        我们将会对订单进行实时跟踪，有效的保障您的合法权益，私下交易将无法享受到赔、财产安全保障、其他售后权益保障！
+      </div>
+      <div class="line"></div>
+      <div class="bottom">
+        <van-button class="confirm"
+                    @click='cancelOrderConfirm'>确定取消</van-button>
+
+        <div class="vertical_line"></div>
+
+        <van-button class="cancel"
+                    @click="cancelOrderCancel">暂不取消</van-button>
+      </div>
+    </van-dialog>
+  </div>
+</template>
+
+<script>
+// 引入订单详情模块
+import OrderDetailInfo from '@/components/OrderDetailComponents/OrderDetailInfo'
+// 引入品质保障
+import QualityAssurance from '@/components/OrderDetailComponents/QualityAssurance'
+// 引入 收费说明组件
+import Information from '@/components/OrderDetailComponents/Information'
+// 引入 收费标准 表格组件
+import ChargingStandards from '@/components/ChargingStandards'
+// 引入联系人信息组件
+import ContactInfo from '@/components/OrderDetailComponents/ContactInfo'
+// 引入 维修清单组件
+import MaintenancePartsList from '@/components/MaintenancePartsList'
+export default {
+  components: {
+    OrderDetailInfo,
+    QualityAssurance,
+    Information,
+    ChargingStandards,
+    ContactInfo,
+    MaintenancePartsList
+  },
+  data() {
+    return {
+      time: 30 * 60 * 60 * 1000,
+      // 控制取消订单的出现
+      showCancelOrderDialog: false
+    }
+  },
+  methods: {
+    // 返回上一级路由
+    onClickLeft() {
+      this.$router.go(-1)
+    },
+    // 点击服务保障组件 跳转到服务保障详情页面
+    goToQualityAssuranceDetail() {
+      this.$router.push('/QualityAssuranceDetail')
+    },
+    // 点击结束服务按钮跳转到 结束服务具体原因页面
+    goToEndService() {
+      this.$router.push('/EndService')
+    },
+    // 取消订单的确认事件- 跳转到取消订单详情页面
+    cancelOrderConfirm() {
+      this.$router.push('/CancelOrderDetail')
+    },
+    // 取消订单的取消事件- 关闭弹出层
+    cancelOrderCancel() {
+      this.showCancelOrderDialog = false
+    },
+    // 点击获取维修清单跳转到维修清单页面
+    goToMaintenance() {
+      this.$router.push('/maintenance')
+    }
+  }
+}
+</script>
+
+<style lang='less' scoped>
+// 修改导航栏左侧文字样式
+/deep/.van-nav-bar__text {
+  font-size: 34px;
+  color: #fff;
+}
+// 导航条
+.nav-bar {
+  height: 100px;
+  background-color: #0090ff;
+  /deep/.van-nav-bar__left {
+    // 修改左侧箭头大小
+    .van-nav-bar__arrow {
+      font-size: 38px;
+    }
+    // 修改左侧箭头颜色
+    .van-icon::before {
+      color: #fff;
+    }
+  }
+}
+
+// 订单详情主体开始
+.order_detail_wrap {
+  margin-top: 100px;
+  // 订单头部
+  .header {
+    width: 750px;
+    height: 200px;
+    background: #0090ff;
+    padding: 48px 20px 48px 30px;
+    box-sizing: border-box;
+    position: relative;
+    .title {
+      font-size: 40px;
+      color: #fff;
+    }
+    .content {
+      color: #ededed;
+      font-size: 28px;
+    }
+  }
+}
+.height {
+  height: 58px;
+}
+// 底部按钮区域
+.button {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750px;
+  height: 158px;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px 0px rgba(196, 196, 196, 0.3);
+  padding: 30px;
+  box-sizing: border-box;
+  .item {
+    width: 336px;
+    height: 98px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 32px;
+  }
+  .left {
+    background-color: #00c3ff;
+    margin-right: 18px;
+  }
+  .right {
+    background-color: #0090ff;
+  }
+}
+// 取消订单弹出框
+.dialog_cancel {
+  width: 536px;
+  height: 527px;
+  background-color: #fff;
+  box-sizing: border-box;
+  .title {
+    color: #111;
+    font-size: 36px;
+    padding: 64px 58px 0;
+  }
+  .short_line {
+    width: 47px;
+    height: 3px;
+    background: #111111;
+    margin: 32px 58px;
+  }
+  .content {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 44px;
+    padding: 0 58px 0;
+  }
+  .line {
+    width: 536px;
+    height: 2px;
+    background: #d7d7d7;
+    margin: 0 auto;
+  }
+  .bottom {
+    padding: 21px 70px;
+    display: flex;
+    justify-content: space-between;
+    .vertical_line {
+      width: 2px;
+      height: 38px;
+      background: #d7d7d7;
+    }
+    .confirm {
+      font-size: 32px;
+      color: #999;
+    }
+    .cancel {
+      font-size: 32px;
+      color: #0090ff;
+    }
+  }
+}
+</style>

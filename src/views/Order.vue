@@ -20,8 +20,10 @@
                badge='3'>
         <!-- 服务中 -->
         <OrderService @click.native="goToOrderServingDetail"></OrderService>
-        <OrderPay></OrderPay>
-        <OrderPaid></OrderPaid>
+        <!-- 待支付 -->
+        <OrderPay @click.native="goToOrderPayDetail"></OrderPay>
+        <!-- 已支付 -->
+        <OrderPaid @click.native="goToOrderPaidDetail"></OrderPaid>
       </van-tab>
       <van-tab class="tab"
                title="已结束"
@@ -94,6 +96,10 @@ export default {
     // 跳转到已结束订单详情
     goToOrderEndDetail() {
       this.$router.push('/OrderEndDetail')
+    },
+    // 跳转到待支付订单详情
+    goToOrderPayDetail() {
+      this.$router.push('/OrderPayDetail')
     }
   }
 }
