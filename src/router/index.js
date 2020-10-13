@@ -22,6 +22,8 @@ import Register from '@/views/Register'
 import Maintenance from '@/components/Maintenance'
 // 引入 待接单详情
 import OrderWaitDetail from '@/components/OrderDetail/OrderWaitDetail'
+// 引入 待上门详情
+import OrderWaitHomeDetail from '@/components/OrderDetail/OrderWaitHomeDetail'
 // 引入品质保障详情
 import QualityAssuranceDetail from '@/components/OrderDetailComponents/QualityAssuranceDetail'
 import CancelOrderDetail from '@/components/OrderDetailComponents/CancelOrderDetail'
@@ -95,6 +97,13 @@ const routes = [
     name: 'OrderWaitDetail',
     component: OrderWaitDetail
   },
+  {
+    // 待上门详情页面
+    path: '/OrderWaitHomeDetail',
+    name: 'OrderWaitHomeDetail',
+    component: OrderWaitHomeDetail
+  },
+
   {
     // 品质保障详情 页面
     path: '/QualityAssuranceDetail',

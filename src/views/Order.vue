@@ -13,7 +13,7 @@
         <!-- 待接单 -->
         <OrderWaitingList @click.native="goToOrderWaitDetail"></OrderWaitingList>
         <!-- 待上门 -->
-        <OrderWaitHome @click="goToOrderWaitHomeDetail"></OrderWaitHome>
+        <OrderWaitHome @click.native="goToOrderWaitHomeDetail"></OrderWaitHome>
       </van-tab>
       <van-tab class="tab"
                title="服务中"
@@ -84,7 +84,7 @@ export default {
     },
     // 跳转到接上门订单详情
     goToOrderWaitHomeDetail() {
-      console.log('123')
+      this.$router.push('/OrderWaitHomeDetail')
     }
   }
 }
