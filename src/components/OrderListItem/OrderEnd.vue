@@ -56,6 +56,7 @@
       <!-- 底部获取维修按钮区域 -->
       <div class="button">
         <van-button plain
+                    @click='goToComplaint'
                     type="info">申请售后</van-button>
       </div>
     </div>
@@ -64,7 +65,18 @@
 
 <script>
 export default {
+  data() {
+    return {
 
+    }
+  },
+  methods: {
+    // 点击申请售后按钮跳转到申请售后页面
+    goToComplaint() {
+      // 联系平台
+      console.log('申请售后')
+    }
+  }
 }
 </script>
 

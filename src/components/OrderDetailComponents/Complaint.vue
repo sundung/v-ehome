@@ -2,32 +2,32 @@
   <div>
     <!-- 导航条 -->
     <van-nav-bar class="nav-bar"
-                 left-text="结束服务"
+                 left-text="投诉"
                  left-arrow
                  @click-left="onClickLeft"
                  fixed />
     <!-- 取消订单详情开始 -->
     <div class="end_service_wrap">
       <div class="bgc">
-        <div class="title">结束原因：</div>
+        <div class="title">投诉原因：</div>
         <van-radio-group v-model="radio"
                          class="form">
           <van-cell-group>
-            <van-cell title="问题已解决，不需要了"
+            <van-cell title="服务态度差"
                       clickable
                       @click="radio = '1'">
               <template #right-icon>
                 <van-radio name="1" />
               </template>
             </van-cell>
-            <van-cell title="下单地址有误"
+            <van-cell title="维修质量问题"
                       clickable
                       @click="radio = '2'">
               <template #right-icon>
                 <van-radio name="2" />
               </template>
             </van-cell>
-            <van-cell title="下单时间有误"
+            <van-cell title="存在不合理收费/私下收费"
                       clickable
                       @click="radio = '3'">
               <template #right-icon>
@@ -56,7 +56,7 @@
     <!-- 底部按钮区域 -->
     <div class="button">
       <van-button class="item"
-                  @click='endServiceDialog'>结束服务</van-button>
+                  @click='endServiceDialog'>提交</van-button>
     </div>
 
     <!-- 结束服务弹出框 -->
@@ -66,7 +66,9 @@
       <div class="title">客户您好</div>
       <div class="short_line"></div>
       <div class="content">
-        确定要结束本次服务吗？
+        本次投诉已提交至平台
+        平台会对本次投诉进行核实
+        感谢用户帮助平台规范服务质量~
       </div>
       <div class="line"></div>
       <div class="bottom">
@@ -96,11 +98,11 @@ export default {
     onClickLeft() {
       this.$router.go(-1)
     },
-    // 点击结束服务按钮,弹出 结束服务弹出框
+    // 点击提交按钮,弹出 投诉弹出框
     endServiceDialog() {
       this.showEndService = true
     },
-    // 点击结束服务弹出框的 取消按钮,关闭弹出框
+    // 点击提交按钮,弹出 投诉弹出框,关闭弹出框
     cancelEndService() {
       this.showEndService = false
     },

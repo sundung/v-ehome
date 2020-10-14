@@ -9,14 +9,16 @@
     <!-- 订单详情主体 -->
     <div class="order_detail_wrap">
       <div class="header">
-        <div class="title">服务中</div>
-        <div class="content">服务中，待师傅确认故障原因！</div>
+        <div class="title">已支付</div>
+        <div class="content">服务已结束，有问题可以申请维修售后～</div>
       </div>
     </div>
     <!-- 订单详情信息 -->
     <OrderDetailInfo></OrderDetailInfo>
     <!-- 品质保障,售后 -->
     <QualityAssurance @click.native='goToQualityAssuranceDetail'></QualityAssurance>
+    <!-- 维修清单组件 -->
+    <MaintenancePartsList></MaintenancePartsList>
     <!-- 收费说明组件 -->
     <Information></Information>
     <!-- 收费标准表格组件 -->
@@ -28,9 +30,9 @@
     <!-- 底部按钮区域 -->
     <div class="button">
       <van-button class="left item"
-                  @click="goToEndService">结束服务</van-button>
+                  @click="goToComplaint">投诉</van-button>
       <van-button class="right item"
-                  @click="goToMaintenance">获取维修清单</van-button>
+                  @click="goToAftersale">申请售后</van-button>
     </div>
     <!-- 取消订单组件的弹出框 -->
     <van-dialog v-model="showCancelOrderDialog"
@@ -66,13 +68,16 @@ import Information from '@/components/OrderDetailComponents/Information'
 import ChargingStandards from '@/components/ChargingStandards'
 // 引入联系人信息组件
 import ContactInfo from '@/components/OrderDetailComponents/ContactInfo'
+// 引入 维修清单组件
+import MaintenancePartsList from '@/components/MaintenancePartsList'
 export default {
   components: {
     OrderDetailInfo,
     QualityAssurance,
     Information,
     ChargingStandards,
-    ContactInfo
+    ContactInfo,
+    MaintenancePartsList
   },
   data() {
     return {
@@ -89,9 +94,9 @@ export default {
     goToQualityAssuranceDetail() {
       this.$router.push('/QualityAssuranceDetail')
     },
-    // 点击结束服务按钮跳转到 结束服务具体原因页面
-    goToEndService() {
-      this.$router.push('/EndService')
+    // 点击投诉页面,跳转到投诉详情页面
+    goToComplaint() {
+      this.$router.push('/complaint')
     },
     // 取消订单的确认事件- 跳转到取消订单详情页面
     cancelOrderConfirm() {
@@ -101,9 +106,9 @@ export default {
     cancelOrderCancel() {
       this.showCancelOrderDialog = false
     },
-    // 点击获取维修清单跳转到维修清单页面
-    goToMaintenance() {
-      this.$router.push('/maintenance')
+    // 点击申请售后按钮,联系平台
+    goToAftersale() {
+      console.log('申请售后')
     }
   }
 }
@@ -174,7 +179,7 @@ export default {
     font-size: 32px;
   }
   .left {
-    background-color: #00c3ff;
+    background-color: #ccc;
     margin-right: 18px;
   }
   .right {

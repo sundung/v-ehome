@@ -29,7 +29,7 @@
                title="已结束"
                badge='2'>
         <OrderCancel @click.native='goToOrderEndDetail'></OrderCancel>
-        <OrderEnd></OrderEnd>
+        <OrderEnd @click.native='goToOrderEndAfterSale'></OrderEnd>
       </van-tab>
       <van-tab class="tab"
                title="全部"
@@ -104,6 +104,10 @@ export default {
     // 跳转到已支付订单页面
     goToOrderPaidDetail() {
       this.$router.push('/OrderPaidDetail')
+    },
+    // 跳转到已支付并且有投诉的,售后的页面
+    goToOrderEndAfterSale() {
+      this.$router.push('/OrderEndAfterSale')
     }
   }
 }

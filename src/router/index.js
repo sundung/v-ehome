@@ -32,12 +32,16 @@ import OrderServingDetail from '@/components/OrderDetail/OrderServingDetail'
 import OrderPayDetail from '@/components/OrderDetail/OrderPayDetail'
 // 引入已支付订单页面
 import OrderPaidDetail from '@/components/OrderDetail/OrderPaidDetail'
+// 引入已经支付完成,有售后和投诉的详情页面
+import OrderEndAfterSale from '@/components/OrderDetail/OrderEndAfterSale'
 // 引入品质保障详情
 import QualityAssuranceDetail from '@/components/OrderDetailComponents/QualityAssuranceDetail'
 //  引入 取消订单原因详情页面
 import CancelOrderDetail from '@/components/OrderDetailComponents/CancelOrderDetail'
 // 引入 结束服务原因详情页面
 import EndService from '@/components/OrderDetailComponents/EndService'
+// 引入 投诉详情页面
+import Complaint from '@/components/OrderDetailComponents/Complaint'
 // 引入 收费标准表格组件
 import ChargingStandards from '@/components/ChargingStandards'
 
@@ -147,6 +151,12 @@ const routes = [
     component: OrderPaidDetail
   },
   {
+    // 已结束订单详情页面(包含投诉,申请售后)
+    path: '/OrderEndAfterSale',
+    name: 'OrderEndAfterSale',
+    component: OrderEndAfterSale
+  },
+  {
     // 品质保障详情 页面
     path: '/QualityAssuranceDetail',
     name: 'QualityAssuranceDetail',
@@ -163,6 +173,12 @@ const routes = [
     path: '/EndService',
     name: 'EndService',
     component: EndService
+  },
+  {
+    // 投诉详情 页面
+    path: '/complaint',
+    name: 'Complaint',
+    component: Complaint
   }
 ]
 
