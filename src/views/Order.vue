@@ -100,6 +100,10 @@ export default {
     // 跳转到待支付订单详情
     goToOrderPayDetail() {
       this.$router.push('/OrderPayDetail')
+    },
+    // 跳转到已支付订单页面
+    goToOrderPaidDetail() {
+      this.$router.push('/OrderPaidDetail')
     }
   }
 }

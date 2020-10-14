@@ -30,6 +30,8 @@ import OrderEndDetail from '@/components/OrderDetail/OrderEndDetail'
 import OrderServingDetail from '@/components/OrderDetail/OrderServingDetail'
 // 引入待支付订单详情
 import OrderPayDetail from '@/components/OrderDetail/OrderPayDetail'
+// 引入已支付订单页面
+import OrderPaidDetail from '@/components/OrderDetail/OrderPaidDetail'
 // 引入品质保障详情
 import QualityAssuranceDetail from '@/components/OrderDetailComponents/QualityAssuranceDetail'
 //  引入 取消订单原因详情页面
@@ -137,6 +139,12 @@ const routes = [
     path: '/OrderPayDetail',
     name: 'OrderPayDetail',
     component: OrderPayDetail
+  },
+  {
+    // 已支付订单详情页面
+    path: '/OrderPaidDetail',
+    name: 'OrderPaidDetail',
+    component: OrderPaidDetail
   },
   {
     // 品质保障详情 页面

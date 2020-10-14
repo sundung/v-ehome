@@ -9,8 +9,8 @@
     <!-- 订单详情主体 -->
     <div class="order_detail_wrap">
       <div class="header">
-        <div class="title">待支付</div>
-        <div class="content">师傅确认故障，已提交维修清单，确认维修请在线支付！</div>
+        <div class="title">已支付</div>
+        <div class="content">师傅维修中，订单已支付～</div>
       </div>
     </div>
     <!-- 订单详情信息 -->
@@ -25,14 +25,7 @@
     <ChargingStandards></ChargingStandards>
     <!-- 联系人信息组件 -->
     <ContactInfo></ContactInfo>
-    <!-- 结束服务按钮 -->
-    <van-button class="end_service_button"
-                @click="goToEndService">结束服务</van-button>
-    <!-- 警告信息 -->
-    <div class="warn_info">
-      <div class="content">
-        在线支付的订单是处理退款、赔偿等问题的唯一凭据，私下交易权益保障！</div>
-    </div>
+
     <!-- 解决的底部固定定位遮挡内容的问题 -->
     <div class="height"></div>
     <!-- 底部按钮区域 -->
@@ -42,8 +35,29 @@
         <div class="price">180.00元</div>
       </div>
       <van-button class="right"
-                  @click="goToPay">支付</van-button>
+                  @click="showEndServiceDialog">服务结束</van-button>
     </div>
+    <!-- 服务结束按钮的弹出框 -->
+    <van-dialog v-model="endServiceDialog"
+                class="dialog_cancel"
+                :show-confirm-button='false'>
+      <div class="title">已确认师傅维修完成！</div>
+      <div class="short_line"></div>
+      <div class="content">
+        如师傅未完成维修，付款造成金钱损失平台概不负责~
+      </div>
+      <div class="line"></div>
+      <div class="bottom">
+        <van-button class="confirm"
+                    cancelOrderCancel
+                    @click='endServiceCancel'>取消</van-button>
+
+        <div class="vertical_line"></div>
+
+        <van-button class="cancel"
+                    @click="endServiceConfirm">结束</van-button>
+      </div>
+    </van-dialog>
   </div>
 </template>
 
@@ -71,9 +85,8 @@ export default {
   },
   data() {
     return {
-      time: 30 * 60 * 60 * 1000,
-      // 控制取消订单的出现
-      showCancelOrderDialog: false
+      // 控制服务结束弹出框的出现
+      endServiceDialog: false
     }
   },
   methods: {
@@ -89,10 +102,17 @@ export default {
     goToEndService() {
       this.$router.push('/EndService')
     },
-    // 点击获取维修清单跳转到维修清单页面
-    goToPay() {
-      // 做支付逻辑
-      console.log('123')
+    // 点击服务结束按钮打开,弹出框
+    showEndServiceDialog() {
+      this.endServiceDialog = true
+    },
+    // 点击结束服务弹出框的,取消按钮,关闭弹出框
+    endServiceCancel() {
+      this.endServiceDialog = false
+    },
+    // 点击结束服务弹出框的,结束按钮,关闭订单,跳转到首页
+    endServiceConfirm() {
+      this.$router.push('/')
     }
   }
 }
@@ -141,33 +161,9 @@ export default {
     }
   }
 }
-// 结束服务按钮样式
-.end_service_button {
-  width: 690px;
-  height: 98px;
-  background: #0090ff;
-  border-radius: 8px;
-  font-size: 32px;
-  color: #fff;
-  margin: 30px;
-}
-// 警告信息
-.warn_info {
-  position: fixed;
-  left: 0;
-  bottom: 148px;
-  width: 750px;
-  height: 60px;
-  background: #fdf1f1;
-  padding: 16px 30px;
-  box-sizing: border-box;
-  .content {
-    font-size: 20px;
-    color: #ff3b30;
-  }
-}
+
 .height {
-  height: 108px;
+  height: 58px;
 }
 // 底部按钮区域
 .button {
@@ -197,6 +193,56 @@ export default {
     width: 336px;
     height: 98px;
     border-radius: 8px;
+  }
+}
+// 取消订单弹出框
+.dialog_cancel {
+  width: 536px;
+  height: 527px;
+  background-color: #fff;
+  box-sizing: border-box;
+  .title {
+    color: #111;
+    font-size: 36px;
+    padding: 64px 58px 0;
+  }
+  .short_line {
+    width: 47px;
+    height: 3px;
+    background: #111111;
+    margin: 32px 58px;
+  }
+  .content {
+    width: 420px;
+    height: 158px;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 94px;
+    padding: 0 58px 0;
+  }
+  .line {
+    width: 536px;
+    height: 2px;
+    background: #d7d7d7;
+    margin: 0 auto;
+  }
+  .bottom {
+    padding: 21px 70px;
+    display: flex;
+    justify-content: space-between;
+    .vertical_line {
+      width: 2px;
+      height: 38px;
+      background: #d7d7d7;
+    }
+    .confirm {
+      font-size: 32px;
+      color: #999;
+    }
+    .cancel {
+      font-size: 32px;
+      color: #0090ff;
+    }
   }
 }
 </style>
