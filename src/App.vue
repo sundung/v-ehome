@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view />
-    <div style="height: 50px;"></div>
+    <!-- <div style="height: 50px;"></div> -->
   </div>
 </template>
 

@@ -23,8 +23,6 @@
     <ChargingStandards></ChargingStandards>
     <!-- 联系人信息组件 -->
     <ContactInfo></ContactInfo>
-    <!-- 解决的底部固定定位遮挡内容的问题 -->
-    <div class="height"></div>
     <!-- 底部按钮区域 -->
     <div class="button">
       <van-button class="left item"
@@ -152,12 +150,10 @@ export default {
     }
   }
 }
-.height {
-  height: 58px;
-}
+
 // 底部按钮区域
 .button {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 750px;

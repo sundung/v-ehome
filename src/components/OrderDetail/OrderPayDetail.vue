@@ -28,13 +28,6 @@
     <!-- 结束服务按钮 -->
     <van-button class="end_service_button"
                 @click="goToEndService">结束服务</van-button>
-    <!-- 警告信息 -->
-    <div class="warn_info">
-      <div class="content">
-        在线支付的订单是处理退款、赔偿等问题的唯一凭据，私下交易权益保障！</div>
-    </div>
-    <!-- 解决的底部固定定位遮挡内容的问题 -->
-    <div class="height"></div>
     <!-- 底部按钮区域 -->
     <div class="button">
       <div class=" left item">
@@ -71,7 +64,6 @@ export default {
   },
   data() {
     return {
-      time: 30 * 60 * 60 * 1000,
       // 控制取消订单的出现
       showCancelOrderDialog: false
     }
@@ -151,27 +143,10 @@ export default {
   color: #fff;
   margin: 30px;
 }
-// 警告信息
-.warn_info {
-  position: fixed;
-  left: 0;
-  bottom: 148px;
-  width: 750px;
-  height: 60px;
-  background: #fdf1f1;
-  padding: 16px 30px;
-  box-sizing: border-box;
-  .content {
-    font-size: 20px;
-    color: #ff3b30;
-  }
-}
-.height {
-  height: 108px;
-}
+
 // 底部按钮区域
 .button {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 750px;

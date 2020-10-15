@@ -55,7 +55,6 @@ export default {
   },
   data() {
     return {
-      time: 30 * 60 * 60 * 1000,
       // 控制取消订单的出现
       showCancelOrderDialog: false
     }
@@ -64,27 +63,8 @@ export default {
     // 返回上一级路由
     onClickLeft() {
       this.$router.go(-1)
-    },
-    // 点击服务保障组件 跳转到服务保障详情页面
-    goToQualityAssuranceDetail() {
-      this.$router.push('/QualityAssuranceDetail')
-    },
-    // 点击结束服务按钮跳转到 结束服务具体原因页面
-    goToEndService() {
-      this.$router.push('/EndService')
-    },
-    // 取消订单的确认事件- 跳转到取消订单详情页面
-    cancelOrderConfirm() {
-      this.$router.push('/CancelOrderDetail')
-    },
-    // 取消订单的取消事件- 关闭弹出层
-    cancelOrderCancel() {
-      this.showCancelOrderDialog = false
-    },
-    // 点击获取维修清单跳转到维修清单页面
-    goToMaintenance() {
-      this.$router.push('/maintenance')
     }
+
   }
 }
 </script>
