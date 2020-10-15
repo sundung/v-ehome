@@ -171,10 +171,13 @@ export default {
     width: 218px;
     height: 98px;
     border-radius: 8px;
+    font-size: 32px;
     color: #fff;
   }
   .center {
     margin: 0 18px;
+    // 去掉 van-button 默认的padding值
+    padding: 0;
     background-color: #00c3ff;
   }
   .left {
