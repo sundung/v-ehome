@@ -2,13 +2,26 @@
   <div class="hello">
     <van-tabbar v-model="active">
       <van-tabbar-item icon="home-o"
-                       @click="goToHome">首页</van-tabbar-item>
-      <van-tabbar-item icon="label-o"
-                       dot
-                       @click="goToOrder">订单</van-tabbar-item>
-      <van-tabbar-item icon="friends-o"
-                       badge="5"
-                       @click="goToMine">我的</van-tabbar-item>
+                       @click="goToHome">
+        <span>首页</span>
+        <template #icon="props">
+          <img :src="props.active ? icon.indexActive : icon.indexNoActive" />
+        </template>
+      </van-tabbar-item>
+      <van-tabbar-item icon="home-o"
+                       @click="goToOrder">
+        <span>订单</span>
+        <template #icon="props">
+          <img :src="props.active ? icon.orderActive : icon.orderNoActive" />
+        </template>
+      </van-tabbar-item>
+      <van-tabbar-item icon="home-o"
+                       @click="goToMine">
+        <span>我的</span>
+        <template #icon="props">
+          <img :src="props.active ? icon.mineActive : icon.mineNoActive" />
+        </template>
+      </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
@@ -18,7 +31,18 @@ export default {
   name: 'Tabbar',
   data() {
     return {
-      active: 'home'
+      active: 0,
+      icon: {
+        // 首页的选中和未选中的 icon图片
+        indexActive: require('../assets/imgs/shouye-xuanzhong.png'),
+        indexNoActive: require('../assets/imgs/shouye-weixuanzhong.png'),
+        // 订单的选中和未选中的 icon图片
+        orderActive: require('../assets/imgs/dingdan-xuanzhong.png'),
+        orderNoActive: require('../assets/imgs/dingdan-weixuanzhong.png'),
+        // 我的 选中和未选中的 icon图片
+        mineActive: require('../assets/imgs/wodedang-xuanzhong.png'),
+        mineNoActive: require('../assets/imgs/wode-weixuanzhong.png')
+      }
     }
   },
   methods: {
@@ -42,5 +66,17 @@ export default {
 <style scoped lang="less">
 .van-tabbar {
   height: 98px;
+  // 修改 tabb 的字体大小
+  .van-tabbar-item {
+    font-size: 20px;
+    // 修改 tab icon图片的大小
+    .van-tabbar-item__icon {
+      img {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 8px;
+      }
+    }
+  }
 }
 </style>
