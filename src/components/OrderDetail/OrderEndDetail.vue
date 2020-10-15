@@ -24,6 +24,8 @@
     <!-- 收费标准 -->
     <van-cell class="charge_stands"
               title="收费标准"
+              title-class='title'
+              value-class='value'
               is-link
               center
               value="查看收费标准"
@@ -118,5 +120,13 @@ export default {
   line-height: 88px;
   background-color: #fff;
   margin-bottom: 20px;
+  .title {
+    font-size: 38px;
+    color: #111;
+  }
+  .value {
+    font-size: 24px;
+    color: #999;
+  }
 }
 </style>

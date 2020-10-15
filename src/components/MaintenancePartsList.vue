@@ -71,6 +71,7 @@ export default {
   .van-cell {
     height: 80px;
     line-height: 80px;
+    font-size: 24px;
     // 设置 重新获取 文字的颜色
     .getData {
       color: #0090ff;
