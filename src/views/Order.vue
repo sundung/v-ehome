@@ -1,11 +1,10 @@
 <template>
   <div>
     <van-tabs v-model="active"
-              class="tabs"
+              class="tabs_wrap"
               color='#0090FF'
               title-active-color='#0090FF'
-              title-inactive-color='#999'
-              sticky>
+              title-inactive-color='#999'>
 
       <van-tab class="tab"
                badge='2'
@@ -43,6 +42,7 @@
         <OrderEnd></OrderEnd>
       </van-tab>
     </van-tabs>
+    <div class="height"></div>
     <Tabbar></Tabbar>
   </div>
 </template>
@@ -123,7 +123,7 @@ export default {
   }
   // 修改 Tab栏中文字的大小
   /deep/ .van-tab {
-    font-size: 28px;
+    font-size: 32px;
     // 修改Tab栏中 item 的宽高
     /deep/ span {
       display: block;
@@ -133,5 +133,8 @@ export default {
       line-height: 40px;
     }
   }
+}
+.height {
+  height: 100px;
 }
 </style>

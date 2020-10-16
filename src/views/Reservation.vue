@@ -410,6 +410,11 @@ export default {
     color: red;
     margin-right: 8px;
   }
+  // 去掉 input 边框
+  input {
+    border: none;
+    outline: medium;
+  }
 }
 // 立即预约按钮
 .button {
@@ -420,6 +425,7 @@ export default {
   position: fixed;
   bottom: 30px;
   left: 30px;
+  font-size: 32px;
 }
 // 点击报修项目的更换弹出Popup 弹出层
 .popup-project {
@@ -500,6 +506,7 @@ export default {
       font-size: 32px;
       color: #0090ff;
       margin-left: 204px;
+      border: none;
     }
   }
 }

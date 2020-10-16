@@ -117,7 +117,6 @@
         </div>
       </div>
     </div>
-    <div style="height:30px;"></div>
     <!-- 在线预约 -->
     <div class="online">
       <button class="button"
@@ -232,7 +231,7 @@ export default {
   }
   // 服务流程区域
   .service-process {
-    // margin-bottom: 60px;
+    margin-bottom: 20px;
     height: 271px;
     background-color: #fff;
     padding: 30px;
@@ -271,13 +270,14 @@ export default {
     background-color: #fff;
     padding: 30px;
     box-sizing: border-box;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     .button {
       width: 690px;
       height: 98px;
       background: #0090ff;
+      border: none;
       border-radius: 8px;
       color: #fff;
       font-size: 32px;

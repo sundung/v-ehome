@@ -9,7 +9,7 @@
     <!-- 取消订单详情开始 -->
     <div class="cancel_order_detail">
       <div class="warn_info">
-        我们将会对订单进行实时跟踪，有效的保障您的合法权益，私下交易将无法享受到赔、财产安全保障、其他售后权益保障！
+        <div class="content">我们将会对订单进行实时跟踪，有效的保障您的合法权益，私下交易将无法享受到赔、财产安全保障、其他售后权益保障！</div>
       </div>
       <div class="bgc">
         <van-radio-group v-model="radio"
@@ -48,8 +48,6 @@
       </div>
       <div class="reason_info">
         <div class="title">可备注具体原因：</div>
-        <!-- <textarea type="text"
-                  placeholder="请您描述取消原因（100字以内）"> -->
         <textarea name=""
                   id=""
                   cols="30"
@@ -154,7 +152,7 @@ export default {
 
 <style lang='less' scoped>
 // 修改导航栏左侧文字样式
-/deep/.van-nav-bar__text {
+::v-deep .van-nav-bar__text {
   font-size: 34px;
   color: #fff;
 }
@@ -162,7 +160,7 @@ export default {
 .nav-bar {
   height: 100px;
   background-color: #0090ff;
-  /deep/.van-nav-bar__left {
+  ::v-deep .van-nav-bar__left {
     // 修改左侧箭头大小
     .van-nav-bar__arrow {
       font-size: 38px;
@@ -176,25 +174,34 @@ export default {
 // 取消订单详情开始
 .cancel_order_detail {
   margin-top: 100px;
+  // 警告信息
   .warn_info {
     padding: 20px 30px;
+    box-sizing: border-box;
     height: 96px;
-    font-size: 20px;
-    color: #ff3b30;
+    // 具体文字
+    .content {
+      widows: 690px;
+      height: 56px;
+      line-height: 28px;
+      font-size: 20px;
+      color: #ff3b30;
+    }
   }
   // 具体原因选项
   .bgc {
     padding: 0 30px;
     background-color: #fff;
     .form {
-      font-size: 24px;
       .van-cell {
         height: 88px;
         line-height: 88px;
         padding: 0;
+        // 修改 左侧文字的大小
+        font-size: 24px;
         .van-radio {
           text-align: center;
-          /deep/.van-radio__icon .van-icon {
+          ::v-deep .van-radio__icon .van-icon {
             width: 24px;
             height: 24px;
           }
@@ -216,6 +223,8 @@ export default {
       color: #666;
       height: 200px;
       width: 690px;
+      resize: none;
+      border: none;
     }
   }
 }
@@ -235,6 +244,7 @@ export default {
     height: 98px;
     border-radius: 8px;
     color: #fff;
+    font-size: 32px;
   }
   .left {
     background-color: #ccc;
