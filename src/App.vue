@@ -8,4 +8,10 @@
 body {
   background-color: #f8f8f8;
 }
+.van-button {
+  border: none;
+}
+button {
+  border: none;
+}
 </style>
