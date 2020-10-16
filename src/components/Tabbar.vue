@@ -79,4 +79,10 @@ export default {
     }
   }
 }
+// 修改 vant 的 Tabbar 的固定定位 ---> 绝对定位
+.van-tabbar--fixed {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 </style>

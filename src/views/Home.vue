@@ -29,6 +29,8 @@
         </van-grid-item>
       </van-grid>
     </div>
+    <!-- 解决首页 Tabbar栏 遮挡底部内容的问题 -->
+    <div class="height"></div>
     <!-- Tabbar组件 -->
     <Tabbar></Tabbar>
   </div>
@@ -103,8 +105,9 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .container {
+  position: relative;
   width: 100%;
   height: 100%;
   .van-grid {
@@ -134,6 +137,9 @@ export default {
     span {
       margin-top: 36px;
     }
+  }
+  .height {
+    height: 100px;
   }
 }
 </style>
